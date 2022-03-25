@@ -40,7 +40,5 @@ class Ciudad:
         for i in range(self.caminos.getSize() - 1):
             for j in range(self.caminos.getSize() - i - 1):
                 if self.caminos.get(j).getSize() > self.caminos.get(j + 1).getSize():
-                    tmp = self.caminos.get(j + 1).objeto
-                    self.caminos.get(j + 1).objeto = self.caminos.get(j).objeto
-                    self.caminos.get(j).objeto = tmp
+                    self.caminos.change(j,j + 1)
         return self.caminos.get(0)

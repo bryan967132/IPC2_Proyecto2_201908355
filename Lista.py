@@ -74,3 +74,19 @@ class LstVctr:
             if actual.objeto.i == i:
                 return actual.objeto
             actual = actual.siguiente
+
+    def change(self,i0,i1):
+        actual = self.primero
+        while actual:
+            if actual.objeto.i == i0:
+                primero = actual.objeto
+                break
+            actual = actual.siguiente
+        actual = self.primero
+        while actual:
+            if actual.objeto.i == i1:
+                segundo = actual.objeto
+                break
+            actual = actual.siguiente
+        primero.i = i1
+        segundo.i = i0

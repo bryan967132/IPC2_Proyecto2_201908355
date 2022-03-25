@@ -16,9 +16,11 @@ for i in range(listaCiudades.getSize()):
     for x in range(militares.getSize()):
         militar = militares.get(x)
         print("Capacidad: {:<4} Posicion: ({},{})".format(militar.capacidad,militar.fila,militar.columna))
+print('\nChapinRescue')
 for i in range(listaRobotsR.getSize()):
     robot = listaRobotsR.get(i)
     print("Nombre: {}".format(robot.nombre))
+print('\nChapinFighter')
 for i in range(listaRobotsF.getSize()):
     robot = listaRobotsF.get(i)
     print("Nombre: {:<15} Capacidad: {:<5}".format(robot.nombre,robot.capacidad))
