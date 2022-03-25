@@ -50,26 +50,14 @@ class LstVctr:
         actual.siguiente = Nodo(objeto = nuevo)
         self.longitud += 1
     
-    def replaceCiudad(self,nuevo):
+    def replace(self,nuevo):
         actual = self.primero
         while actual:
             if actual.objeto.nombre == nuevo.nombre:
-                actual.objeto.filas = nuevo.filas
-                actual.objeto.columnas = nuevo.columnas
-                actual.objeto.mapa = nuevo.mapa
-                actual.objeto.uMilitar = nuevo.uMilitar
+                actual.objeto = nuevo
                 return
             actual = actual.siguiente
-    
-    def replaceRobot(self,nuevo):
-        actual = self.primero
-        while actual:
-            if actual.objeto.nombre == nuevo.nombre:
-                actual.objeto.tipo = nuevo.tipo
-                actual.objeto.capacidad = nuevo.capacidad
-                return
-            actual = actual.siguiente
-
+            
     def search(self,nombre):
         if self.primero is None:
             return - 1

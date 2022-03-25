@@ -6,6 +6,11 @@ listaCiudades = pXML.getCiudades(archivo)
 listaRobotsR = pXML.getChapinRescue(archivo)
 listaRobotsF = pXML.getChapinFighter(archivo)
 
+archivo = 'entrada.xml'
+listaCiudades = pXML.getCiudades(archivo)
+listaRobotsR = pXML.getChapinRescue(archivo)
+listaRobotsF = pXML.getChapinFighter(archivo)
+
 for i in range(listaCiudades.getL()):
     print()
     ciudad = listaCiudades.get(i)

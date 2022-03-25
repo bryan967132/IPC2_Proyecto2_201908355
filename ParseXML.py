@@ -35,7 +35,7 @@ class ParseXML:
                 contador1 += 1
             indice = self.listaCiudades.search(nombre)
             if indice != - 1:
-                self.listaCiudades.replaceCiudad(NCiudad(indice,filas,columnas,nombre,listaCaracteres,listaMilitares))
+                self.listaCiudades.replace(NCiudad(indice,filas,columnas,nombre,listaCaracteres,listaMilitares))
             else:
                 self.listaCiudades.insert(NCiudad(self.contadorP,filas,columnas,nombre,listaCaracteres,listaMilitares))
                 self.contadorP += 1
@@ -52,7 +52,7 @@ class ParseXML:
                 if tipo == 'ChapinRescue':
                     indice = self.listaRobotsR.search(nombre)
                     if indice != -1:
-                        self.listaRobotsR.replaceRobot(Robot(indice,nombre,tipo))
+                        self.listaRobotsR.replace(Robot(indice,nombre,tipo))
                     else:
                         self.listaRobotsR.insert(Robot(self.contadorR,nombre,tipo))
                         self.contadorR += 1
@@ -70,7 +70,7 @@ class ParseXML:
                     capacidad = int(elemento.attributes['capacidad'].value)
                     indice = self.listaRobotsF.search(nombre)
                     if indice != -1:
-                        self.listaRobotsF.replaceRobot(Robot(indice,nombre,tipo,capacidad))
+                        self.listaRobotsF.replace(Robot(indice,nombre,tipo,capacidad))
                     else:
                         self.listaRobotsF.insert(Robot(self.contadorF,nombre,tipo,capacidad))
                         self.contadorF += 1
