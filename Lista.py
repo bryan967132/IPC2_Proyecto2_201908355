@@ -36,7 +36,7 @@ class LstVctr:
         self.primero = None
         self.longitud = 0
     
-    def getL(self):
+    def getSize(self):
         return self.longitud
 
     def insert(self,nuevo):
