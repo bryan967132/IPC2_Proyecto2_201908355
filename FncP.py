@@ -2,7 +2,7 @@ from Lista import LstVctr,LstMtrz
 from Constructores import ValorVctr
 class FuncionesP:
     def ubicarM(self,matriz,militares):
-        for i in range(militares.getL()):
+        for i in range(militares.getSize()):
             militar = militares.get(i)
             matriz.get(militar.fila,militar.columna).setCaracter('M')
         return matriz
@@ -16,7 +16,7 @@ class FuncionesP:
     
     def clonarVctr(self,vector):
         clon = LstVctr()
-        for i in range(vector.getL()):
+        for i in range(vector.getSize()):
             clon.insert(vector.get(i))
         return clon
 

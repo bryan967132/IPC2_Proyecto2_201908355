@@ -12,7 +12,7 @@ class FuncionesS:
         return matriz
     
     def ubicarM(self,matriz,militares):
-        for i in range(militares.getL()):
+        for i in range(militares.getSize()):
             militar = militares.get(i)
             matriz.get(militar.fila,militar.columna).valor = 'M'
         return matriz

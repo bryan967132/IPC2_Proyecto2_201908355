@@ -13,7 +13,7 @@ for i in range(listaCiudades.getSize()):
     fncS.printCiudad(ciudad)
     print('Unidades Militares')
     militares = ciudad.uMilitar
-    for x in range(militares.getL()):
+    for x in range(militares.getSize()):
         militar = militares.get(x)
         print("Capacidad: {:<4} Posicion: ({},{})".format(militar.capacidad,militar.fila,militar.columna))
 for i in range(listaRobotsR.getSize()):
