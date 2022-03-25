@@ -21,7 +21,6 @@ class FuncionesP:
     
     def printCiudad(self,ciudad):
         cadena = ''
-        print()
         for i in range(ciudad.getF()):
             for j in range(ciudad.getC()):
                 celda = ciudad.get(i,j).getCaracter()
@@ -41,4 +40,32 @@ class FuncionesP:
                     cadena += ' P '
             if i < ciudad.getF() - 1:
                 cadena += '\n'
+        print(cadena)
+    
+    def printTablero(self,tablero):
+        cadena = ''
+        for i in range(tablero.getF()):
+            for j in range(tablero.getC()):
+                if not tablero.get(i,j).arribaDisponible():
+                    cadena += ' ═════ '
+                else:
+                    cadena += '       '
+            cadena += '\n'
+            for j in range(tablero.getC()):
+                if not tablero.get(i,j).izquierdaDisponible():
+                    cadena += '║'
+                else:
+                    cadena += ' '
+                cadena += '  ' + tablero.get(i,j).getCaracter() + '  '
+                if not tablero.get(i,j).derechaDisponible():
+                    cadena += '║'
+                else:
+                    cadena += ' '
+            cadena += '\n'
+            for j in range(tablero.getC()):
+                if not tablero.get(i,j).abajoDisponible():
+                    cadena += ' ═════ '
+                else:
+                    cadena += '       '
+            cadena += '\n'
         print(cadena)

@@ -43,40 +43,40 @@ class Mision:
                 if self.esTransitable(self.mapa.get(c).valor):
                     if i == 0:
                         if j == 0:
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c + columnas).valor)): d = False
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c + 1).valor)): r = False
+                            if not self.esTransitable(self.mapa.get(c + columnas).valor): d = False
+                            if not self.esTransitable(self.mapa.get(c + 1).valor): r = False
                         elif j == columnas - 1:
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c + columnas))): d = False
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c - 1))): l = False
+                            if not self.esTransitable(self.mapa.get(c + columnas)): d = False
+                            if not self.esTransitable(self.mapa.get(c - 1)): l = False
                         else:
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c + columnas).valor)): d = False
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c + 1).valor)): r = False
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c - 1).valor)): l = False
+                            if not self.esTransitable(self.mapa.get(c + columnas).valor): d = False
+                            if not self.esTransitable(self.mapa.get(c + 1).valor): r = False
+                            if not self.esTransitable(self.mapa.get(c - 1).valor): l = False
                     elif i == filas - 1:
                         if j == 0:
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c - columnas).valor)): u = False
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c + 1).valor)): r = False
+                            if not self.esTransitable(self.mapa.get(c - columnas).valor): u = False
+                            if not self.esTransitable(self.mapa.get(c + 1).valor): r = False
                         elif j == columnas - 1:
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c - columnas).valor)): u = False
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c - 1).valor)): l = False
+                            if not self.esTransitable(self.mapa.get(c - columnas).valor): u = False
+                            if not self.esTransitable(self.mapa.get(c - 1).valor): l = False
                         else:
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c - columnas).valor)): u = False
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c + 1).valor)): r = False
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c - 1).valor)): l = False
+                            if not self.esTransitable(self.mapa.get(c - columnas).valor): u = False
+                            if not self.esTransitable(self.mapa.get(c + 1).valor): r = False
+                            if not self.esTransitable(self.mapa.get(c - 1).valor): l = False
                     else:
                         if j == 0:
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c + columnas).valor)): d = False
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c - columnas).valor)): u = False
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c + 1).valor)): r = False
+                            if not self.esTransitable(self.mapa.get(c + columnas).valor): d = False
+                            if not self.esTransitable(self.mapa.get(c - columnas).valor): u = False
+                            if not self.esTransitable(self.mapa.get(c + 1).valor): r = False
                         elif j == columnas - 1:
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c + columnas).valor)): d = False
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c - columnas).valor)): u = False
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c - 1).valor)): l = False
+                            if not self.esTransitable(self.mapa.get(c + columnas).valor): d = False
+                            if not self.esTransitable(self.mapa.get(c - columnas).valor): u = False
+                            if not self.esTransitable(self.mapa.get(c - 1).valor): l = False
                         else:
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c + columnas).valor)): d = False
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c - columnas).valor)): u = False
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c + 1).valor)): r = False
-                            if not self.esTransitable(self.esTransitable(self.mapa.get(c - 1).valor)): l = False
+                            if not self.esTransitable(self.mapa.get(c + columnas).valor): d = False
+                            if not self.esTransitable(self.mapa.get(c - columnas).valor): u = False
+                            if not self.esTransitable(self.mapa.get(c + 1).valor): r = False
+                            if not self.esTransitable(self.mapa.get(c - 1).valor): l = False
                 paso = LstVctr()
                 paso.insert(ValorVctr(0,u))
                 paso.insert(ValorVctr(1,r))
@@ -97,6 +97,6 @@ class Mision:
     
     def esTransitable(self,celda):
         for i in range(self.transitables.getSize()):
-            if self.transitables.get(i) == celda:
+            if self.transitables.get(i).valor == celda:
                 return True
         return False

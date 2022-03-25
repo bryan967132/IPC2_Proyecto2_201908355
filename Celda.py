@@ -20,16 +20,16 @@ class Celda:
         return self.j
     
     def arribaDisponible(self):
-        return self.paso.get(0)
+        return self.paso.get(0).valor
 
     def derechaDisponible(self):
-        return self.paso.get(1)
+        return self.paso.get(1).valor
 
     def abajoDisponible(self):
-        return self.paso.get(2)
+        return self.paso.get(2).valor
 
     def izquierdaDisponible(self):
-        return self.paso.get(3)
+        return self.paso.get(3).valor
 
     def setPaso(self,paso):
         self.paso = paso
