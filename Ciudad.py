@@ -37,6 +37,10 @@ class Ciudad:
             self.caminos.insert(camino)
     
     def getCamino(self):
-        for i in range(self.caminos.getSize()):
-            for j in range(self.caminos.getSize()):
-                pass#if self.caminos.get(j)
+        for i in range(self.caminos.getSize() - 1):
+            for j in range(self.caminos.getSize() - i - 1):
+                if self.caminos.get(j).getSize() > self.caminos.get(j + 1).getSize():
+                    tmp = self.caminos.get(j + 1).objeto
+                    self.caminos.get(j + 1).objeto = self.caminos.get(j).objeto
+                    self.caminos.get(j).objeto = tmp
+        return self.caminos.get(0)
