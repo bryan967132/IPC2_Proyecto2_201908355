@@ -1,6 +1,6 @@
 from Limpiar import Limpiar
 from ParseXML import ParseXML
-from FuncionesS import FuncionesS
+from FncS import FuncionesS
 class Menu:
     def principal(self):
         pXML = ParseXML()
