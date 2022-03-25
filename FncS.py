@@ -1,6 +1,6 @@
-from Lista import LstMtrz
+from Lista import LstMtrz,LstVctr
 from FncP import FuncionesP
-from Constructores import ValorMtrz
+from Constructores import ValorMtrz,ValorVctr
 class FuncionesS:
     def lstVctrToMtrz(self,filas,columnas,vector):
         matriz = LstMtrz(filas,columnas)
@@ -11,15 +11,18 @@ class FuncionesS:
                 c += 1
         return matriz
     
-    def ubicarM(self,matriz,militares):
-        for i in range(militares.getSize()):
-            militar = militares.get(i)
-            matriz.get(militar.fila,militar.columna).valor = 'M'
-        return matriz
+    def lstMtrzToVctr(self,matriz):
+        vector = LstVctr()
+        c = 0
+        for i in range(matriz.getF()):
+            for j in range(matriz.getC()):
+                vector.insert(ValorVctr(c,matriz.get(i,j).valor))
+                c += 1
+        return vector
 
     def printCiudad(self,ciudad):
         fncP = FuncionesP()
-        mapa = self.ubicarM(self.lstVctrToMtrz(ciudad.filas,ciudad.columnas,fncP.clonarVctr(ciudad.mapa)),ciudad.uMilitar)
+        mapa = fncP.ubicarM(self.lstVctrToMtrz(ciudad.filas,ciudad.columnas,fncP.clonarVctr(ciudad.mapa)),ciudad.uMilitar)
         print("\n{}".format(ciudad.nombre))
         self.printMtrz(mapa)
     

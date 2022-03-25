@@ -1,8 +1,8 @@
 class Celda:
-    def __init__(self,i,j,caracter,paso,fin):
-        self.setI(i)
-        self.setJ(j)
+    def __init__(self,caracter,i,j,paso,fin):
         self.setCaracter(caracter)
+        self.i = i
+        self.j = j
         self.setPaso(paso)
         self.setFin(fin)
         self.setVisitado(False)
@@ -15,15 +15,9 @@ class Celda:
     
     def getI(self):
         return self.i
-    
-    def setI(self,i):
-        self.i = i
 
     def getJ(self):
-        return self.posY
-    
-    def setJ(self,posY):
-        self.posY = posY
+        return self.j
     
     def arribaDisponible(self):
         return self.paso.get(0)

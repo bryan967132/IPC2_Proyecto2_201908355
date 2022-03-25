@@ -1,7 +1,9 @@
 from ParseXML import ParseXML
 from FncS import FuncionesS
+from FncP import FuncionesP
 from Mision import Mision
 
+fncP = FuncionesP()
 fncS = FuncionesS()
 pXML = ParseXML()
 archivo = 'ciudades.xml'
