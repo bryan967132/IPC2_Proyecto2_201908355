@@ -1,5 +1,5 @@
 from xml.dom import minidom
-from Constructores import NCiudad,Valor,UMilitar,Robot
+from Constructores import NCiudad,ValorVctr,UMilitar,Robot
 from Lista import LstVctr
 class ParseXML:
     def __init__(self):
@@ -23,7 +23,7 @@ class ParseXML:
             contador1 = 0
             for fila in ciudad.getElementsByTagName('fila'):
                 for columna in fila.firstChild.data.replace('"',''):
-                    listaCaracteres.insert(Valor(contador1,columna))
+                    listaCaracteres.insert(ValorVctr(contador1,columna))
                     contador1 += 1
             listaMilitares = LstVctr()
             contador1 = 0

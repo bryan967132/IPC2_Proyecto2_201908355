@@ -44,7 +44,7 @@ class Menu:
                         limpiar.limpiarConsola()
                         if indice != - 1:
                             ciudad = listaCiudades.get(indice)
-                            funS.printVctr(ciudad)
+                            funS.printCiudad(ciudad)
                         else:
                             print('\nLa ciudad no se encuentra registrada')
                     else:

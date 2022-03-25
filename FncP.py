@@ -1,5 +1,5 @@
 from Lista import LstVctr,LstMtrz
-from Constructores import Valor
+from Constructores import ValorVctr
 class FuncionesP:
     def ubicarM(self,matriz,militares):
         for i in range(militares.getL()):
@@ -25,6 +25,15 @@ class FuncionesP:
         c = 0
         for i in range(matriz.getF()):
             for j in range(matriz.getC()):
-                mapa.insert(Valor(c,matriz.get(i,j).getCaracter()))
+                mapa.insert(ValorVctr(c,matriz.get(i,j).getCaracter()))
                 c += 1
         return mapa
+    
+    def ciudad(self,ciudad):
+        ciudad = LstMtrz()
+        mapa = self.clonarVctr(ciudad.mapa)
+        c = 0
+        for x in range(ciudad.filas):
+            for y in range(ciudad.columnas):
+                
+                c += 1

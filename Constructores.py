@@ -1,6 +1,12 @@
-class Valor:
+class ValorVctr:
     def __init__(self,i,valor):
         self.i = i
+        self.valor = valor
+
+class ValorMtrz:
+    def __init__(self,i,j,valor):
+        self.i = i
+        self.j = j
         self.valor = valor
 
 class Robot:

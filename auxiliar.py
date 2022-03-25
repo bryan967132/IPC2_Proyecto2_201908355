@@ -1,9 +1,7 @@
 from ParseXML import ParseXML
 from FncS import FuncionesS
-from FncP import FuncionesP
 
 fncS = FuncionesS()
-fncP = FuncionesP()
 pXML = ParseXML()
 archivo = 'ciudades.xml'
 listaCiudades = pXML.getCiudades(archivo)
@@ -12,8 +10,7 @@ listaRobotsF = pXML.getChapinFighter(archivo)
 
 for i in range(listaCiudades.getL()):
     ciudad = listaCiudades.get(i)
-    mapa = fncP.clonarVctr(ciudad.mapa)
-    fncS.printVctr(ciudad)
+    fncS.printCiudad(ciudad)
     print('Unidades Militares')
     militares = ciudad.uMilitar
     for x in range(militares.getL()):
