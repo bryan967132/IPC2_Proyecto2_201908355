@@ -15,6 +15,7 @@ ciudad = listaCiudades.get(listaCiudades.search('CiudadGotica'))
 print(ciudad.nombre,'->',ciudad.filas,'x',ciudad.columnas)
 mision = Mision(ciudad.filas,ciudad.columnas,ciudad.mapa,ciudad.uMilitar)
 mision.generarPlanoRescate()
+mision.iniciarRescate(13,18)
 
 #for i in range(listaCiudades.getSize()):
 #    ciudad = listaCiudades.get(i)

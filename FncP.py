@@ -74,7 +74,7 @@ class FuncionesP:
         print(titulo)
         for i in range(lista.getSize()):
             punto = lista.get(i).valor
-            print(punto.i,',',punto.j)
+            print(punto.getI(),',',punto.getJ())
 
     def printPuntosM(self,lista):
         print('Militares')

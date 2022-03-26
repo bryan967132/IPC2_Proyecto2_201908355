@@ -32,7 +32,7 @@ class Ciudad:
     def dentroDelLimite(self,x,y):
         return x >= 0 and x < self.ciudad.getF() and y >= 0 and y < self.ciudad.getC()
     
-    def agregarCamion(self,camino):
+    def agregarCamino(self,camino):
         if camino:
             self.caminos.insert(camino)
     

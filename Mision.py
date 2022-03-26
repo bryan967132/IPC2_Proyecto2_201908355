@@ -1,5 +1,6 @@
-from Constructores import ValorVctr
+from Constructores import ValorVctr,ValorMtrz
 from Lista import LstVctr,LstMtrz
+from Ciudad import Ciudad
 from Celda import Celda
 from FncP import FuncionesP
 from FncS import FuncionesS
@@ -33,6 +34,20 @@ class Mision:
         self.fncP.printPuntos('Unidades Civiles',self.civiles)
         self.fncP.printPuntos('Recursos',self.recursos)
         self.fncP.printPuntosM(self.militares)
+    
+    def iniciarRescate(self,x1,y1):
+        self.ordenarEntradas(x1,y1)
+        for i in range(self.entradas.getSize()):
+            try:
+                camino = LstVctr()
+                clonCiudad = self.fncP.clonarMtrz(self.ciudad)
+                tmpCiudad = Ciudad(self.marcarDestino(clonCiudad,x1,y1))
+                camino.insert(ValorVctr(0,clonCiudad.get(self.entradas.get(i).getI(),self.entradas.get(i).getJ())))
+                self.encontrarCaminos(tmpCiudad,clonCiudad.get(self.entradas.get(i).getI(),self.entradas.get(i).getJ()),camino,1)
+                return
+            except:
+                pass
+        print('Misión Imposible')
 
     def getciudad(self,filas,columnas):
         self.entradas = LstVctr()
@@ -104,3 +119,31 @@ class Mision:
             if self.transitables.get(i).valor == celda:
                 return True
         return False
+    
+    def ordenarEntradas(self,x1,y1):
+        for i in range(self.entradas.getSize() - 1):
+            for x in range(self.entradas.getSize() - i - 1):
+                actual = self.entradas.get(x).valor
+                actual = abs(x1 - actual.getI()) + abs(y1 - actual.getJ())
+                siguiente = self.entradas.get(x + 1).valor
+                siguiente = abs(x1 - siguiente.getI()) + abs(y1 - siguiente.getJ())
+                if actual > siguiente:
+                    self.entradas.change(x,x + 1)
+    
+    def marcarDestino(self,ciudad,x,y):
+        ciudad.get(x,y).setFin(True)
+        return ciudad
+    
+    def encontrarCaminos(self,ciudad,celdaActual,camino,n):
+        if celdaActual.isFin():
+            ciudad.agregarCamino(self.fncP.clonarVctr(camino))
+        else:
+            movimientos = LstMtrz(4,2)
+            movimientos.insert(ValorMtrz(0,0,-1));movimientos.insert(ValorMtrz(0,1,0))
+            movimientos.insert(ValorMtrz(1,0,0));movimientos.insert(ValorMtrz(1,1,1))
+            movimientos.insert(ValorMtrz(2,0,1));movimientos.insert(ValorMtrz(2,1,0))
+            movimientos.insert(ValorMtrz(3,0,0));movimientos.insert(ValorMtrz(3,1,-1))
+            for i in range(movimientos.getF()):
+                posI = celdaActual.getI() + movimientos.get(i,0)
+                posI = celdaActual.getJ() + movimientos.get(i,1)
+                tmp = ciudad.getCeldaAt()
