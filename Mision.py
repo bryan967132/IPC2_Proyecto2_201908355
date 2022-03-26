@@ -44,6 +44,8 @@ class Mision:
                 tmpCiudad = Ciudad(self.marcarDestino(clonCiudad,x1,y1))
                 camino.insert(ValorVctr(0,clonCiudad.get(self.entradas.get(i).getI(),self.entradas.get(i).getJ())))
                 self.encontrarCaminos(tmpCiudad,clonCiudad.get(self.entradas.get(i).getI(),self.entradas.get(i).getJ()),camino,1)
+                camino = tmpCiudad.getCamino()
+                
                 return
             except:
                 pass
