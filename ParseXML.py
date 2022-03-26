@@ -1,14 +1,12 @@
 from xml.dom import minidom
-from Constructores import NCiudad,Valor,UMilitar,Robot
+from Constructores import NCiudad,ValorVctr,UMilitar,Robot
 from Lista import LstVctr
 class ParseXML:
     def __init__(self):
         self.listaCiudades = LstVctr()
-        self.listaRobotsR = LstVctr()
-        self.listaRobotsF = LstVctr()
+        self.listaRobots = LstVctr()
         self.contadorP = 0
         self.contadorR = 0
-        self.contadorF = 0
 
     def getCiudades(self,ruta):
         myDoc = minidom.parse(ruta)
@@ -23,7 +21,7 @@ class ParseXML:
             contador1 = 0
             for fila in ciudad.getElementsByTagName('fila'):
                 for columna in fila.firstChild.data.replace('"',''):
-                    listaCaracteres.insert(Valor(contador1,columna))
+                    listaCaracteres.insert(ValorVctr(contador1,columna))
                     contador1 += 1
             listaMilitares = LstVctr()
             contador1 = 0
@@ -35,13 +33,13 @@ class ParseXML:
                 contador1 += 1
             indice = self.listaCiudades.search(nombre)
             if indice != - 1:
-                self.listaCiudades.replaceCiudad(NCiudad(indice,filas,columnas,nombre,listaCaracteres,listaMilitares))
+                self.listaCiudades.replace(NCiudad(indice,filas,columnas,nombre,listaCaracteres,listaMilitares))
             else:
                 self.listaCiudades.insert(NCiudad(self.contadorP,filas,columnas,nombre,listaCaracteres,listaMilitares))
                 self.contadorP += 1
         return self.listaCiudades
 
-    def getChapinRescue(self,ruta):
+    def getChapinRobots(self,ruta):
         myDoc = minidom.parse(ruta)
         robots = myDoc.getElementsByTagName('robot')
         for robot in robots:
@@ -49,29 +47,13 @@ class ParseXML:
             for elemento in nomR:
                 nombre = elemento.firstChild.data.strip()
                 tipo = elemento.attributes['tipo'].value
-                if tipo == 'ChapinRescue':
-                    indice = self.listaRobotsR.search(nombre)
-                    if indice != -1:
-                        self.listaRobotsR.replaceRobot(Robot(indice,nombre,tipo))
-                    else:
-                        self.listaRobotsR.insert(Robot(self.contadorR,nombre,tipo))
-                        self.contadorR += 1
-        return self.listaRobotsR
-
-    def getChapinFighter(self,ruta):
-        myDoc = minidom.parse(ruta)
-        robots = myDoc.getElementsByTagName('robot')
-        for robot in robots:
-            nomR = robot.getElementsByTagName('nombre')
-            for elemento in nomR:
-                nombre = elemento.firstChild.data.strip()
-                tipo = elemento.attributes['tipo'].value
+                indice = self.listaRobots.search(nombre)
+                capacidad = 0
                 if tipo == 'ChapinFighter':
                     capacidad = int(elemento.attributes['capacidad'].value)
-                    indice = self.listaRobotsF.search(nombre)
-                    if indice != -1:
-                        self.listaRobotsF.replaceRobot(Robot(indice,nombre,tipo,capacidad))
-                    else:
-                        self.listaRobotsF.insert(Robot(self.contadorF,nombre,tipo,capacidad))
-                        self.contadorF += 1
-        return self.listaRobotsF
+                if indice != -1:
+                    self.listaRobots.replace(Robot(indice,nombre,tipo,capacidad))
+                else:
+                    self.listaRobots.insert(Robot(self.contadorR,nombre,tipo,capacidad))
+                    self.contadorR += 1
+        return self.listaRobots

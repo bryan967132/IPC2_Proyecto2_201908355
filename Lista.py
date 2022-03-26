@@ -36,7 +36,7 @@ class LstVctr:
         self.primero = None
         self.longitud = 0
     
-    def getL(self):
+    def getSize(self):
         return self.longitud
 
     def insert(self,nuevo):
@@ -50,26 +50,14 @@ class LstVctr:
         actual.siguiente = Nodo(objeto = nuevo)
         self.longitud += 1
     
-    def replaceCiudad(self,nuevo):
+    def replace(self,nuevo):
         actual = self.primero
         while actual:
             if actual.objeto.nombre == nuevo.nombre:
-                actual.objeto.filas = nuevo.filas
-                actual.objeto.columnas = nuevo.columnas
-                actual.objeto.mapa = nuevo.mapa
-                actual.objeto.uMilitar = nuevo.uMilitar
+                actual.objeto = nuevo
                 return
             actual = actual.siguiente
-    
-    def replaceRobot(self,nuevo):
-        actual = self.primero
-        while actual:
-            if actual.objeto.nombre == nuevo.nombre:
-                actual.objeto.tipo = nuevo.tipo
-                actual.objeto.capacidad = nuevo.capacidad
-                return
-            actual = actual.siguiente
-
+            
     def search(self,nombre):
         if self.primero is None:
             return - 1
@@ -85,4 +73,29 @@ class LstVctr:
         while actual:
             if actual.objeto.i == i:
                 return actual.objeto
+            actual = actual.siguiente
+
+    def change(self,i0,i1):
+        actual = self.primero
+        while actual:
+            if actual.objeto.i == i0:
+                primero = actual.objeto
+                break
+            actual = actual.siguiente
+        actual = self.primero
+        while actual:
+            if actual.objeto.i == i1:
+                segundo = actual.objeto
+                break
+            actual = actual.siguiente
+        primero.i = i1
+        segundo.i = i0
+    
+    def remove(self,i):
+        actual = self.primero
+        while actual:
+            if actual.siguiente.objeto.i == i:
+                actual.siguiente = None
+                self.longitud -= 1
+                break
             actual = actual.siguiente
