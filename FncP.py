@@ -69,15 +69,3 @@ class FuncionesP:
                     cadena += '       '
             cadena += '\n'
         print(cadena)
-
-    def printPuntos(self,titulo,lista):
-        print(titulo)
-        for i in range(lista.getSize()):
-            punto = lista.get(i).valor
-            print(punto.getI(),',',punto.getJ())
-
-    def printPuntosM(self,lista):
-        print('Militares')
-        for i in range(lista.getSize()):
-            punto = lista.get(i)
-            print(punto.fila,',',punto.columna)

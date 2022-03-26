@@ -48,3 +48,69 @@ class FuncionesS:
             if x < matriz.getF() - 1:
                 cadenaM += '\n'
         print(cadenaM)
+    
+    def printPuntos(self,titulo,lista):
+        print(titulo)
+        for i in range(lista.getSize()):
+            punto = lista.get(i).valor
+            print(punto.getI(),',',punto.getJ())
+
+    def printPuntosM(self,lista):
+        print('Militares')
+        for i in range(lista.getSize()):
+            punto = lista.get(i)
+            print(punto.fila,',',punto.columna)
+    
+    def hayObjetivos(self,listaCiudades,objetivo):
+        for i in range(listaCiudades.getSize()):
+            ciudad = listaCiudades.get(i).mapa
+            for x in range(ciudad.getSize()):
+                if ciudad.get(x).valor == objetivo:
+                    return True
+        return False
+    
+    def ciudadesObjetivos(self,listaCiudades,objetivo):
+        print()
+        if objetivo == 'C':
+            print('Ciudades con Civiles')
+        elif objetivo == 'R':
+            print('Ciudades con Recursos')
+        for i in range(listaCiudades.getSize()):
+            ciudad = listaCiudades.get(i)
+            for x in range(ciudad.mapa.getSize()):
+                if ciudad.mapa.get(x).valor == objetivo:
+                    print(' -',ciudad.nombre)
+                    break
+    
+    def contarObjetivos(self,mapa,objetivo):
+        contador = 0
+        for i in range(mapa.getSize()):
+            if mapa.get(i).valor == objetivo:
+                contador += 1
+        return contador
+    
+    def verObjetivos(self,filas,columnas,mapa,objetivo,cantidad):
+        pares = LstMtrz(cantidad,2)
+        c = 0
+        par = 0
+        print('\nPosibles Objetivos Civiles')
+        for i in range(filas):
+            for j in range(columnas):
+                if mapa.get(c).valor == objetivo:
+                    print('{:<4} Fila: {:<4} Columna: {:<4}'.format(str(par + 1) + ')',i + 1,j + 1))
+                    pares.insert(ValorMtrz(par,0,i))
+                    pares.insert(ValorMtrz(par,1,j))
+                    par += 1
+                c += 1
+        return pares
+    
+    def unicoObjetivo(self,filas,columnas,mapa,objetivo):
+        parCoord = LstVctr()
+        c = 0
+        for i in range(filas):
+            for j in range(columnas):
+                if mapa.get(c).valor == objetivo:
+                    parCoord.insert(ValorVctr(0,i))
+                    parCoord.insert(ValorVctr(1,j))
+                    return parCoord
+                c += 1
