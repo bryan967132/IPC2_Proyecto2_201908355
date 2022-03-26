@@ -37,5 +37,5 @@ listaRobots = pXML.getChapinRobots(archivo)
 #        par = fncS.unicoObjetivo(ciudad.filas,ciudad.columnas,ciudad.mapa,'C')
 #        mision.iniciarRescate(par.get(0).valor,par.get(1).valor)
 
-fncS.verRescues(listaRobots,'ChapinRescue')
-fncS.verRescues(listaRobots,'ChapinFighter')
+#fncS.verRescues(listaRobots,'ChapinRescue')
+#fncS.verRescues(listaRobots,'ChapinFighter')
