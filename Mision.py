@@ -38,17 +38,15 @@ class Mision:
     def iniciarRescate(self,x1,y1):
         self.ordenarEntradas(x1,y1)
         for i in range(self.entradas.getSize()):
-            try:
                 camino = LstVctr()
                 clonCiudad = self.fncP.clonarMtrz(self.ciudad)
                 tmpCiudad = Ciudad(self.marcarDestino(clonCiudad,x1,y1))
-                camino.insert(ValorVctr(0,clonCiudad.get(self.entradas.get(i).getI(),self.entradas.get(i).getJ())))
-                self.encontrarCaminos(tmpCiudad,clonCiudad.get(self.entradas.get(i).getI(),self.entradas.get(i).getJ()),camino,1)
+                camino.insert(ValorVctr(0,clonCiudad.get(self.entradas.get(i).valor.getI(),self.entradas.get(i).valor.getJ())))
+                self.encontrarCaminos(tmpCiudad,clonCiudad.get(self.entradas.get(i).valor.getI(),self.entradas.get(i).valor.getJ()),camino,1)
                 camino = tmpCiudad.getCamino()
-                
+                clonCiudad = self.getMision(clonCiudad,camino,'P')
+                self.fncP.printCiudad(clonCiudad)
                 return
-            except:
-                pass
         print('Misión Imposible')
 
     def getciudad(self,filas,columnas):
@@ -146,8 +144,8 @@ class Mision:
             movimientos.insert(ValorMtrz(2,0,1));movimientos.insert(ValorMtrz(2,1,0))
             movimientos.insert(ValorMtrz(3,0,0));movimientos.insert(ValorMtrz(3,1,-1))
             for i in range(movimientos.getF()):
-                posI = celdaActual.getI() + movimientos.get(i,0)
-                posJ = celdaActual.getJ() + movimientos.get(i,1)
+                posI = celdaActual.getI() + movimientos.get(i,0).valor
+                posJ = celdaActual.getJ() + movimientos.get(i,1).valor
                 celdaDestino = ciudad.getCeldaDestino(posI,posJ)
                 if i == 0:
                     if ciudad.arribaDisponible(celdaActual,celdaDestino):
@@ -177,3 +175,10 @@ class Mision:
                         self.encontrarCaminos(ciudad,celdaDestino,camino,n + 1)
                         celdaActual.setVisitado(False)
                         camino.remove(n)
+    
+    def getMision(self,ciudad,camino,caracter):
+        for i in range(camino.getSize()):
+            tmp = ciudad.get(camino.get(i).valor.getI(),camino.get(i).valor.getJ())
+            if tmp.getCaracter() == ' ':
+                ciudad.get(camino.get(i).valor.getI(),camino.get(i).valor.getJ()).setCaracter(caracter)
+        return ciudad

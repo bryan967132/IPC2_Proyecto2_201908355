@@ -93,8 +93,9 @@ class LstVctr:
     
     def remove(self,i):
         actual = self.primero
-        while actual.siguiente:
+        while actual:
             if actual.siguiente.objeto.i == i:
                 actual.siguiente = None
+                self.longitud -= 1
                 break
             actual = actual.siguiente

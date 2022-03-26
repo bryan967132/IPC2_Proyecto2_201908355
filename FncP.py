@@ -37,7 +37,7 @@ class FuncionesP:
                 elif celda == 'M':
                     cadena += ' M '
                 elif celda == 'P':
-                    cadena += ' P '
+                    cadena += '███'
             if i < ciudad.getF() - 1:
                 cadena += '\n'
         print(cadena)
