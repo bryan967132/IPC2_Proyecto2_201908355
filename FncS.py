@@ -25,6 +25,7 @@ class FuncionesS:
         mapa = fncP.ubicarM(self.lstVctrToMtrz(ciudad.filas,ciudad.columnas,fncP.clonarVctr(ciudad.mapa)),ciudad.uMilitar)
         print("\n{}".format(ciudad.nombre))
         self.printMtrz(mapa)
+        print()
     
     def printMtrz(self,matriz):
         cadenaM = ''
@@ -70,6 +71,7 @@ class FuncionesS:
                 if robot.capacidad > 0:
                     nrob += ' Capacidad: {}'.format(robot.capacidad)
                 print(nrob)
+        print()
 
     def hayObjetivos(self,listaCiudades,objetivo):
         for i in range(listaCiudades.getSize()):
@@ -91,7 +93,8 @@ class FuncionesS:
                 if ciudad.mapa.get(x).valor == objetivo:
                     print(' -',ciudad.nombre)
                     break
-    
+        print()
+
     def contarObjetivos(self,mapa,objetivo):
         contador = 0
         for i in range(mapa.getSize()):
@@ -112,6 +115,7 @@ class FuncionesS:
                     pares.insert(ValorMtrz(par,1,j))
                     par += 1
                 c += 1
+        print()
         return pares
     
     def unicoObjetivo(self,filas,columnas,mapa,objetivo):

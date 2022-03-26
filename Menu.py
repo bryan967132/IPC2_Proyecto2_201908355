@@ -34,7 +34,7 @@ class Menu:
                             if funS.hayObjetivos(listaCiudades,'C'):
                                 funS.verRescues(listaRobots,'ChapinRescue')
                                 while True:
-                                    indice = listaRobots.search(input('\nIngrese el Nombre del ChapinRescue: '))
+                                    indice = listaRobots.search(input('Ingrese el Nombre del ChapinRescue: '))
                                     if indice != - 1:
                                         rescue = listaRobots.get(indice)
                                         if rescue.tipo == 'ChapinRescue':
@@ -43,7 +43,7 @@ class Menu:
                                 print('\nChapinRescue Enviado: {}'.format(rescue.nombre))
                                 funS.ciudadesObjetivos(listaCiudades,'C')
                                 while True:
-                                    indice = listaCiudades.search(input('\nIngrese el Nombre de la Ciudad: '))
+                                    indice = listaCiudades.search(input('Ingrese el Nombre de la Ciudad: '))
                                     if indice != - 1:
                                         break
                                 ciudad = listaCiudades.get(indice)
@@ -56,7 +56,7 @@ class Menu:
                                     pares = funS.verObjetivos(ciudad.filas,ciudad.columnas,ciudad.mapa,'C',uCiviles)
                                     while True:
                                         try:
-                                            parC = int(input('\nIngrese el número del objetivo: '))
+                                            parC = int(input('Ingrese el número del objetivo: '))
                                             if parC >= 1 and parC <= pares.getF():
                                                 mision.iniciarRescate(pares.get(parC - 1,0).valor,pares.get(parC - 1,1).valor)
                                                 break

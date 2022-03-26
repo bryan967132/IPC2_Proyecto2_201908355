@@ -44,12 +44,12 @@ class Mision:
                 clonCiudad = self.getMision(clonCiudad,camino,'P')
                 self.fncP.printCiudad(clonCiudad)
                 Limpiar().limpiarConsola()
-                print('\nÚltima Misión\nMisión Completada')
+                print('\nÚltima Misión De Rescate\nMisión Completada')
                 return
             except:
                 pass
         Limpiar().limpiarConsola()
-        print('\nÚltima Misión\nMisión Imposible')
+        print('\nÚltima Misión De Rescate\nMisión Imposible')
 
     def getciudad(self,filas,columnas):
         self.entradas = LstVctr()
