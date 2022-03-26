@@ -75,3 +75,9 @@ class FuncionesP:
         for i in range(lista.getSize()):
             punto = lista.get(i).valor
             print(punto.i,',',punto.j)
+
+    def printPuntosM(self,lista):
+        print('Militares')
+        for i in range(lista.getSize()):
+            punto = lista.get(i)
+            print(punto.fila,',',punto.columna)
