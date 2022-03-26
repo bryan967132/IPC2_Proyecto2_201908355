@@ -4,11 +4,9 @@ from Lista import LstVctr
 class ParseXML:
     def __init__(self):
         self.listaCiudades = LstVctr()
-        self.listaRobotsR = LstVctr()
-        self.listaRobotsF = LstVctr()
+        self.listaRobots = LstVctr()
         self.contadorP = 0
         self.contadorR = 0
-        self.contadorF = 0
 
     def getCiudades(self,ruta):
         myDoc = minidom.parse(ruta)
@@ -41,7 +39,7 @@ class ParseXML:
                 self.contadorP += 1
         return self.listaCiudades
 
-    def getChapinRescue(self,ruta):
+    def getChapinRobots(self,ruta):
         myDoc = minidom.parse(ruta)
         robots = myDoc.getElementsByTagName('robot')
         for robot in robots:
@@ -49,29 +47,13 @@ class ParseXML:
             for elemento in nomR:
                 nombre = elemento.firstChild.data.strip()
                 tipo = elemento.attributes['tipo'].value
-                if tipo == 'ChapinRescue':
-                    indice = self.listaRobotsR.search(nombre)
-                    if indice != -1:
-                        self.listaRobotsR.replace(Robot(indice,nombre,tipo))
-                    else:
-                        self.listaRobotsR.insert(Robot(self.contadorR,nombre,tipo))
-                        self.contadorR += 1
-        return self.listaRobotsR
-
-    def getChapinFighter(self,ruta):
-        myDoc = minidom.parse(ruta)
-        robots = myDoc.getElementsByTagName('robot')
-        for robot in robots:
-            nomR = robot.getElementsByTagName('nombre')
-            for elemento in nomR:
-                nombre = elemento.firstChild.data.strip()
-                tipo = elemento.attributes['tipo'].value
+                indice = self.listaRobots.search(nombre)
+                capacidad = 0
                 if tipo == 'ChapinFighter':
                     capacidad = int(elemento.attributes['capacidad'].value)
-                    indice = self.listaRobotsF.search(nombre)
-                    if indice != -1:
-                        self.listaRobotsF.replace(Robot(indice,nombre,tipo,capacidad))
-                    else:
-                        self.listaRobotsF.insert(Robot(self.contadorF,nombre,tipo,capacidad))
-                        self.contadorF += 1
-        return self.listaRobotsF
+                if indice != -1:
+                    self.listaRobots.replace(Robot(indice,nombre,tipo,capacidad))
+                else:
+                    self.listaRobots.insert(Robot(self.contadorR,nombre,tipo,capacidad))
+                    self.contadorR += 1
+        return self.listaRobots

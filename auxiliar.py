@@ -8,37 +8,31 @@ fncS = FuncionesS()
 pXML = ParseXML()
 archivo = 'ciudades.xml'
 listaCiudades = pXML.getCiudades(archivo)
-listaRobotsR = pXML.getChapinRescue(archivo)
-listaRobotsF = pXML.getChapinFighter(archivo)
+listaRobots = pXML.getChapinRobots(archivo)
 
-if fncS.hayObjetivos(listaCiudades,'C'):
-    fncS.ciudadesObjetivos(listaCiudades,'C')
-    ciudad = listaCiudades.get(listaCiudades.search('CiudadGuate'))
+for i in range(listaCiudades.getSize()):
+    ciudad = listaCiudades.get(i)
     fncS.printCiudad(ciudad)
-    mision = Mision(ciudad.filas,ciudad.columnas,ciudad.mapa,ciudad.uMilitar)
-    mision.generarPlanoRescate()
-    uCiviles = fncS.contarObjetivos(ciudad.mapa,'C')
-    if uCiviles > 1:
-        pares = fncS.verObjetivos(ciudad.filas,ciudad.columnas,ciudad.mapa,'C',uCiviles)
-        mision.iniciarRescate(pares.get(1,0).valor,pares.get(1,1).valor)
-    else:
-        par = fncS.unicoObjetivo(ciudad.filas,ciudad.columnas,ciudad.mapa,'C')
-        mision.iniciarRescate(par.get(0).valor,par.get(1).valor)
+    print('Unidades Militares')
+    militares = ciudad.uMilitar
+    for x in range(militares.getSize()):
+        militar = militares.get(x)
+        print("Capacidad: {:<4} Posicion: ({},{})".format(militar.capacidad,militar.fila,militar.columna))
+print('\nRobots')
+for i in range(listaRobots.getSize()):
+    robot = listaRobots.get(i)
+    print("Nombre: {:<15} Tipo: {:<15} Capacidad: {}".format(robot.nombre,robot.tipo,robot.capacidad))
 
-#for i in range(listaCiudades.getSize()):
-#    ciudad = listaCiudades.get(i)
+#if fncS.hayObjetivos(listaCiudades,'C'):
+#    fncS.ciudadesObjetivos(listaCiudades,'C')
+#    ciudad = listaCiudades.get(listaCiudades.search('CiudadGuate'))
 #    fncS.printCiudad(ciudad)
-#    print('Unidades Militares')
-#    militares = ciudad.uMilitar
-#    for x in range(militares.getSize()):
-#        militar = militares.get(x)
-#        print("Capacidad: {:<4} Posicion: ({},{})".format(militar.capacidad,militar.fila,militar.columna))
-#print('\nChapinRescue')
-#for i in range(listaRobotsR.getSize()):
-#    robot = listaRobotsR.get(i)
-#    print("Nombre: {}".format(robot.nombre))
-#print('\nChapinFighter')
-#for i in range(listaRobotsF.getSize()):
-#    robot = listaRobotsF.get(i)
-#    print("Nombre: {:<15} Capacidad: {:<5}".format(robot.nombre,robot.capacidad))
-#print()
+#    mision = Mision(ciudad.filas,ciudad.columnas,ciudad.mapa,ciudad.uMilitar)
+#    mision.generarPlanoRescate()
+#    uCiviles = fncS.contarObjetivos(ciudad.mapa,'C')
+#    if uCiviles > 1:
+#        pares = fncS.verObjetivos(ciudad.filas,ciudad.columnas,ciudad.mapa,'C',uCiviles)
+#        mision.iniciarRescate(pares.get(1,0).valor,pares.get(1,1).valor)
+#    else:
+#        par = fncS.unicoObjetivo(ciudad.filas,ciudad.columnas,ciudad.mapa,'C')
+#        mision.iniciarRescate(par.get(0).valor,par.get(1).valor)

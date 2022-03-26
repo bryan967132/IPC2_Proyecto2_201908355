@@ -61,6 +61,11 @@ class FuncionesS:
             punto = lista.get(i)
             print(punto.fila,',',punto.columna)
     
+    def verRescues(self,listaRobots):
+        print('ChapinRescue Disponibles')
+        for i in range(listaRobots.getSize()):
+            print('- Nombre: {}'.format(listaRobots.get(i).nombre))
+
     def hayObjetivos(self,listaCiudades,objetivo):
         for i in range(listaCiudades.getSize()):
             ciudad = listaCiudades.get(i).mapa

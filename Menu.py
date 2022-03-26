@@ -11,8 +11,7 @@ class Menu:
         funP = FuncionesP()
         funS = FuncionesS()
         listaCiudades = None
-        listaRobotsR = None
-        listaRobotsF = None
+        listaRobots = None
         opcion = 0
         while opcion != 5:
             #try:
@@ -22,8 +21,7 @@ class Menu:
                     try:
                         archivo = input('\nIngrese la ruta del archivo: ')
                         listaCiudades = pXML.getCiudades(archivo)
-                        listaRobotsR = pXML.getChapinRescue(archivo)
-                        listaRobotsF = pXML.getChapinFighter(archivo)
+                        listaRobots = pXML.getChapinRobots(archivo)
                         limpiar.limpiarConsola()
                         print('\nConfiguraciones cargadas')
                     except:
@@ -31,8 +29,8 @@ class Menu:
                         print('\nHa ocurrido un error al cargar el archivo')
                 elif opcion == 2:
                     limpiar.limpiarConsola()
-                    if listaCiudades and listaRobotsR and listaRobotsF:
-                        if listaRobotsR.getSize() > 0:
+                    if listaCiudades and listaRobots:
+                        if listaRobots.getSize() > 0:
                             if funS.hayObjetivos(listaCiudades,'C'):
                                 funS.ciudadesObjetivos(listaCiudades,'C')
                                 while True:
@@ -48,7 +46,7 @@ class Menu:
                                     while True:
                                         try:
                                             parC = int(input('\nIngrese el número del objetivo: '))
-                                            if parC >= 1 and parC < pares.getF() + 1:
+                                            if parC >= 1 and parC <= pares.getF():
                                                 mision.iniciarRescate(pares.get(parC - 1,0).valor,pares.get(parC - 1,1).valor)
                                                 break
                                         except:
@@ -64,12 +62,12 @@ class Menu:
                         print('\nNo se han cargado configuraciones')
                 elif opcion == 3:
                     limpiar.limpiarConsola()
-                    if listaCiudades and listaRobotsR and listaRobotsF:
+                    if listaCiudades and listaRobots:
                         pass
                     else:
                         print('\nNo se han cargado configuraciones')
                 elif opcion == 4:
-                    if listaCiudades and listaRobotsR and listaRobotsF:
+                    if listaCiudades and listaRobots:
                         indice = listaCiudades.search(input('\nIngrese el Nombre de la Ciudad: '))
                         limpiar.limpiarConsola()
                         if indice != - 1:
