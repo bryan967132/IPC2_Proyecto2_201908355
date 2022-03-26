@@ -29,6 +29,9 @@ class Mision:
         )
         self.ciudad = self.getciudad(self.filas,self.columnas)
         self.fncP.printCiudad(self.ciudad)
+        self.fncP.printPuntos('Entradas',self.entradas)
+        self.fncP.printPuntos('Unidades Civiles',self.civiles)
+        self.fncP.printPuntos('Recursos',self.recursos)
 
     def getciudad(self,filas,columnas):
         self.entradas = LstVctr()
