@@ -145,5 +145,33 @@ class Mision:
             movimientos.insert(ValorMtrz(3,0,0));movimientos.insert(ValorMtrz(3,1,-1))
             for i in range(movimientos.getF()):
                 posI = celdaActual.getI() + movimientos.get(i,0)
-                posI = celdaActual.getJ() + movimientos.get(i,1)
-                tmp = ciudad.getCeldaAt()
+                posJ = celdaActual.getJ() + movimientos.get(i,1)
+                celdaDestino = ciudad.getCeldaDestino(posI,posJ)
+                if i == 0:
+                    if ciudad.arribaDisponible(celdaActual,celdaDestino):
+                        camino.insert(ValorVctr(n,celdaDestino))
+                        celdaActual.setVisitado(True)
+                        self.encontrarCaminos(ciudad,celdaDestino,camino,n + 1)
+                        celdaActual.setVisitado(False)
+                        camino.remove(n)
+                elif i == 1:
+                    if ciudad.derechaDisponible(celdaActual,celdaDestino):
+                        camino.insert(ValorVctr(n,celdaDestino))
+                        celdaActual.setVisitado(True)
+                        self.encontrarCaminos(ciudad,celdaDestino,camino,n + 1)
+                        celdaActual.setVisitado(False)
+                        camino.remove(n)
+                elif i == 2:
+                    if ciudad.abajoDisponible(celdaActual,celdaDestino):
+                        camino.insert(ValorVctr(n,celdaDestino))
+                        celdaActual.setVisitado(True)
+                        self.encontrarCaminos(ciudad,celdaDestino,camino,n + 1)
+                        celdaActual.setVisitado(False)
+                        camino.remove(n)
+                elif i == 3:
+                    if ciudad.izquierdaDisponible(celdaActual,celdaDestino):
+                        camino.insert(ValorVctr(n,celdaDestino))
+                        celdaActual.setVisitado(True)
+                        self.encontrarCaminos(ciudad,celdaDestino,camino,n + 1)
+                        celdaActual.setVisitado(False)
+                        camino.remove(n)

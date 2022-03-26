@@ -24,7 +24,7 @@ class Ciudad:
             return celdaActual.izquierdaDisponible()
         return False
     
-    def getCeldaAt(self,x,y):
+    def getCeldaDestino(self,x,y):
         if self.dentroDelLimite(x,y):
             return self.ciudad.get(x,y)
         return None

@@ -90,3 +90,11 @@ class LstVctr:
             actual = actual.siguiente
         primero.i = i1
         segundo.i = i0
+    
+    def remove(self,i):
+        actual = self.primero
+        while actual.siguiente:
+            if actual.siguiente.objeto.i == i:
+                actual.siguiente = None
+                break
+            actual = actual.siguiente
