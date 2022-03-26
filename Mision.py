@@ -29,15 +29,11 @@ class Mision:
             )
         )
         self.ciudad = self.getciudad(self.filas,self.columnas)
-        self.fncP.printCiudad(self.ciudad)
-        self.fncP.printPuntos('Entradas',self.entradas)
-        self.fncP.printPuntos('Unidades Civiles',self.civiles)
-        self.fncP.printPuntos('Recursos',self.recursos)
-        self.fncP.printPuntosM(self.militares)
     
     def iniciarRescate(self,x1,y1):
         self.ordenarEntradas(x1,y1)
         for i in range(self.entradas.getSize()):
+            try:
                 camino = LstVctr()
                 clonCiudad = self.fncP.clonarMtrz(self.ciudad)
                 tmpCiudad = Ciudad(self.marcarDestino(clonCiudad,x1,y1))
@@ -47,6 +43,8 @@ class Mision:
                 clonCiudad = self.getMision(clonCiudad,camino,'P')
                 self.fncP.printCiudad(clonCiudad)
                 return
+            except:
+                pass
         print('Misión Imposible')
 
     def getciudad(self,filas,columnas):
@@ -178,7 +176,9 @@ class Mision:
     
     def getMision(self,ciudad,camino,caracter):
         for i in range(camino.getSize()):
-            tmp = ciudad.get(camino.get(i).valor.getI(),camino.get(i).valor.getJ())
-            if tmp.getCaracter() == ' ':
-                ciudad.get(camino.get(i).valor.getI(),camino.get(i).valor.getJ()).setCaracter(caracter)
+            cmn = camino.get(i).valor
+            celda = ciudad.get(cmn.getI(),cmn.getJ())
+            if celda.getCaracter() == ' ':
+                celda.setCaracter(caracter)
+                celda.setVisitado(True)
         return ciudad
