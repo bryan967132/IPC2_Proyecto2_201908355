@@ -1,4 +1,5 @@
 from Constructores import ValorVctr,ValorMtrz
+from Limpiar import Limpiar
 from Lista import LstVctr,LstMtrz
 from Ciudad import Ciudad
 from Celda import Celda
@@ -42,10 +43,13 @@ class Mision:
                 camino = tmpCiudad.getCamino()
                 clonCiudad = self.getMision(clonCiudad,camino,'P')
                 self.fncP.printCiudad(clonCiudad)
+                Limpiar().limpiarConsola()
+                print('\nÚltima Misión\nMisión Completada')
                 return
             except:
                 pass
-        print('Misión Imposible')
+        Limpiar().limpiarConsola()
+        print('\nÚltima Misión\nMisión Imposible')
 
     def getciudad(self,filas,columnas):
         self.entradas = LstVctr()

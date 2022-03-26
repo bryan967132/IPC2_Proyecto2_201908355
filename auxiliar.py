@@ -10,18 +10,18 @@ archivo = 'ciudades.xml'
 listaCiudades = pXML.getCiudades(archivo)
 listaRobots = pXML.getChapinRobots(archivo)
 
-for i in range(listaCiudades.getSize()):
-    ciudad = listaCiudades.get(i)
-    fncS.printCiudad(ciudad)
-    print('Unidades Militares')
-    militares = ciudad.uMilitar
-    for x in range(militares.getSize()):
-        militar = militares.get(x)
-        print("Capacidad: {:<4} Posicion: ({},{})".format(militar.capacidad,militar.fila,militar.columna))
-print('\nRobots')
-for i in range(listaRobots.getSize()):
-    robot = listaRobots.get(i)
-    print("Nombre: {:<15} Tipo: {:<15} Capacidad: {}".format(robot.nombre,robot.tipo,robot.capacidad))
+#for i in range(listaCiudades.getSize()):
+#    ciudad = listaCiudades.get(i)
+#    fncS.printCiudad(ciudad)
+#    print('Unidades Militares')
+#    militares = ciudad.uMilitar
+#    for x in range(militares.getSize()):
+#        militar = militares.get(x)
+#        print("Capacidad: {:<4} Posicion: ({},{})".format(militar.capacidad,militar.fila,militar.columna))
+#print('\nRobots')
+#for i in range(listaRobots.getSize()):
+#    robot = listaRobots.get(i)
+#    print("Nombre: {:<15} Tipo: {:<15} Capacidad: {}".format(robot.nombre,robot.tipo,robot.capacidad))
 
 #if fncS.hayObjetivos(listaCiudades,'C'):
 #    fncS.ciudadesObjetivos(listaCiudades,'C')
@@ -36,3 +36,6 @@ for i in range(listaRobots.getSize()):
 #    else:
 #        par = fncS.unicoObjetivo(ciudad.filas,ciudad.columnas,ciudad.mapa,'C')
 #        mision.iniciarRescate(par.get(0).valor,par.get(1).valor)
+
+fncS.verRescues(listaRobots,'ChapinRescue')
+fncS.verRescues(listaRobots,'ChapinFighter')

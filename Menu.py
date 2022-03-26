@@ -32,6 +32,15 @@ class Menu:
                     if listaCiudades and listaRobots:
                         if listaRobots.getSize() > 0:
                             if funS.hayObjetivos(listaCiudades,'C'):
+                                funS.verRescues(listaRobots,'ChapinRescue')
+                                while True:
+                                    indice = listaRobots.search(input('\nIngrese el Nombre del ChapinRescue: '))
+                                    if indice != - 1:
+                                        rescue = listaRobots.get(indice)
+                                        if rescue.tipo == 'ChapinRescue':
+                                            break
+                                limpiar.limpiarConsola()
+                                print('\nChapinRescue Enviado: {}'.format(rescue.nombre))
                                 funS.ciudadesObjetivos(listaCiudades,'C')
                                 while True:
                                     indice = listaCiudades.search(input('\nIngrese el Nombre de la Ciudad: '))
@@ -41,7 +50,9 @@ class Menu:
                                 mision = Mision(ciudad.filas,ciudad.columnas,ciudad.mapa,ciudad.uMilitar)
                                 mision.generarPlanoRescate()
                                 uCiviles = funS.contarObjetivos(ciudad.mapa,'C')
+                                limpiar.limpiarConsola()
                                 if uCiviles > 1:
+                                    funS.printCiudad(ciudad)
                                     pares = funS.verObjetivos(ciudad.filas,ciudad.columnas,ciudad.mapa,'C',uCiviles)
                                     while True:
                                         try:

@@ -61,10 +61,15 @@ class FuncionesS:
             punto = lista.get(i)
             print(punto.fila,',',punto.columna)
     
-    def verRescues(self,listaRobots):
-        print('ChapinRescue Disponibles')
+    def verRescues(self,listaRobots,tipo):
+        print('\n{} Disponibles'.format(tipo))
         for i in range(listaRobots.getSize()):
-            print('- Nombre: {}'.format(listaRobots.get(i).nombre))
+            robot = listaRobots.get(i)
+            if robot.tipo == tipo:
+                nrob = '- Nombre: {:<15}'.format(robot.nombre)
+                if robot.capacidad > 0:
+                    nrob += ' Capacidad: {}'.format(robot.capacidad)
+                print(nrob)
 
     def hayObjetivos(self,listaCiudades,objetivo):
         for i in range(listaCiudades.getSize()):
