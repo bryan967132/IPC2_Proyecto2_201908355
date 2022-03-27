@@ -1,10 +1,12 @@
 from Constructores import ValorVctr
 from Lista import LstVctr
+import sys
 class Ciudad:
     def __init__(self,ciudad):
         self.ciudad = ciudad
         self.caminos = LstVctr()
         self.nCmn = 0
+        self.transitables = 0
     
     def arribaDisponible(self,celdaActual,celdaDestino):
         if celdaDestino and not celdaDestino.isVisitado():
@@ -40,8 +42,21 @@ class Ciudad:
             self.nCmn += 1
     
     def getCamino(self):
-        for i in range(self.caminos.getSize() - 1):
-            for j in range(self.caminos.getSize() - i - 1):
-                if self.caminos.get(j).valor.getSize() > self.caminos.get(j + 1).valor.getSize():
-                    self.caminos.change(j,j + 1)
+        if self.caminos.getSize() <= 500:
+            sys.setrecursionlimit(20000)
+            self.orden(self.caminos.getSize())
         return self.caminos.get(0).valor
+    
+    def orden(self,longitud):
+        if longitud == 1:
+            return
+        self.orden2(0,longitud - 1)
+        self.orden(longitud - 1)
+    
+    def orden2(self,i,longitud):
+        if i == longitud:
+            return
+        if self.caminos.get(i).valor.getSize() > self.caminos.get(i + 1).valor.getSize():
+            self.caminos.change(i,i + 1)
+        self.orden2(i + 1,longitud)
+    

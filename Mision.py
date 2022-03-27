@@ -5,6 +5,7 @@ from Ciudad import Ciudad
 from Celda import Celda
 from FncP import FuncionesP
 from FncS import FuncionesS
+import sys
 class Mision:
     def __init__(self,filas,columnas,mapa,militares,robot):
         self.fncP = FuncionesP()
@@ -51,6 +52,7 @@ class Mision:
         self.ciudad = self.getciudad(self.filas,self.columnas)
     
     def iniciarRescate(self,x1,y1):
+        sys.setrecursionlimit(20000)
         self.ordenarEntradas(x1,y1)
         for i in range(self.entradas.getSize()):
             try:
@@ -61,7 +63,7 @@ class Mision:
                 self.encontrarCaminosR(tmpCiudad,clonCiudad.get(self.entradas.get(i).valor.getI(),self.entradas.get(i).valor.getJ()),camino,1)
                 camino = tmpCiudad.getCamino()
                 clonCiudad = self.getMision(clonCiudad,camino,'P','Rescate')
-                #Limpiar().limpiarConsola()
+                Limpiar().limpiarConsola()
                 print('\nÚltima Misión: Misión Completada')
                 print('Tipo de Misión: Rescate')
                 print('Unidad Civil Rescatada: {},{}'.format(x1 + 1,y1 + 1))
@@ -70,10 +72,11 @@ class Mision:
                 return
             except:
                 pass
-        #Limpiar().limpiarConsola()
+        Limpiar().limpiarConsola()
         print('\nÚltima Misión De Rescate\nMisión Imposible')
     
     def iniciarExtraccion(self,x1,y1):
+        sys.setrecursionlimit(20000)
         self.ordenarEntradas(x1,y1)
         capIni = self.robot.capacidad
         self.capFin = capIni
@@ -86,6 +89,7 @@ class Mision:
                 self.encontrarCaminosE(tmpCiudad,clonCiudad.get(self.entradas.get(i).valor.getI(),self.entradas.get(i).valor.getJ()),camino,capIni,1)
                 camino = tmpCiudad.getCamino()
                 clonCiudad = self.getMision(clonCiudad,camino,'P','Extraccion')
+                Limpiar().limpiarConsola()
                 print('\nÚltima Misión: Misión Completada')
                 print('Tipo de Misión: Extracción de Recursos')
                 print('Unidad Civil Rescatada: {},{}'.format(x1 + 1,y1 + 1))
@@ -96,7 +100,7 @@ class Mision:
                 return
             except:
                 pass
-        #Limpiar().limpiarConsola()
+        Limpiar().limpiarConsola()
         print('\nÚltima Misión De Rescate\nMisión Imposible')
 
     def getciudad(self,filas,columnas):
@@ -308,7 +312,6 @@ class Mision:
             celda = ciudad.get(cmn.getI(),cmn.getJ())
             if celda.getCaracter() == ' ':
                 celda.setCaracter(caracter)
-                celda.setVisitado(True)
             if mision == 'Extraccion':
                 if celda.getCaracter() == 'M':
                     self.capFin -= self.getCapacidadMilitar(celda.getI(),celda.getJ())

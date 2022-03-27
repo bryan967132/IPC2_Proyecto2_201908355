@@ -47,4 +47,4 @@ extraccion1.iniciarExtraccion(6,18)
 
 extraccion2 = Mision(ciudad.filas,ciudad.columnas,ciudad.mapa,ciudad.uMilitar,fight)
 extraccion2.generarPlanoExtraccion()
-extraccion2.iniciarExtraccion(3,19)
+extraccion2.iniciarExtraccion(12,14)
