@@ -72,6 +72,13 @@ class FuncionesS:
                     nrob += ' Capacidad: {}'.format(robot.capacidad)
                 print(nrob)
         print()
+    
+    def contarRescues(self,listaRobots,tipo):
+        contador = 0
+        for i in range(listaRobots.getSize()):
+            if listaRobots.get(i).tipo == tipo:
+                contador += 1
+        return contador
 
     def hayObjetivos(self,listaCiudades,objetivo):
         for i in range(listaCiudades.getSize()):
