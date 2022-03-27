@@ -51,7 +51,7 @@ class Menu:
                                     if indice != - 1:
                                         break
                                 ciudad = listaCiudades.get(indice)
-                                mision = Mision(ciudad.filas,ciudad.columnas,ciudad.mapa,ciudad.uMilitar)
+                                mision = Mision(ciudad.filas,ciudad.columnas,ciudad.mapa,ciudad.uMilitar,rescue)
                                 mision.generarPlanoRescate()
                                 uCiviles = funS.contarObjetivos(ciudad.mapa,'C')
                                 limpiar.limpiarConsola()

@@ -3,7 +3,7 @@ class Celda:
         self.setCaracter(caracter)
         self.i = i
         self.j = j
-        self.setPaso(paso)
+        self.paso = paso
         self.setFin(fin)
         self.setVisitado(False)
 
