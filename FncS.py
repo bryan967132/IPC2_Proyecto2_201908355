@@ -117,7 +117,10 @@ class FuncionesS:
         pares = LstMtrz(cantidad,2)
         c = 0
         par = 0
-        print('\nPosibles Objetivos Civiles')
+        if objetivo == 'C':
+            print('\nPosibles Objetivos Civiles')
+        elif objetivo == 'R':
+            print('\nPosibles Recursos Extraibles')
         for i in range(filas):
             for j in range(columnas):
                 if mapa.get(c).valor == objetivo:
