@@ -52,7 +52,6 @@ class Mision:
         self.ciudad = self.getciudad(self.filas,self.columnas)
     
     def iniciarRescate(self,x1,y1):
-        sys.setrecursionlimit(20000)
         self.ordenarEntradas(x1,y1)
         for i in range(self.entradas.getSize()):
             try:
@@ -76,7 +75,6 @@ class Mision:
         print('\nÚltima Misión De Rescate\nMisión Imposible')
     
     def iniciarExtraccion(self,x1,y1):
-        sys.setrecursionlimit(20000)
         self.ordenarEntradas(x1,y1)
         capIni = self.robot.capacidad
         self.capFin = capIni
