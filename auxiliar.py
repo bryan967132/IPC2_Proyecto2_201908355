@@ -10,7 +10,8 @@ archivo = 'entrada.xml'
 listaCiudades = pXML.getCiudades(archivo)
 listaRobots = pXML.getChapinRobots(archivo)
 
-print(funS.contarRescues(listaRobots,'ChapinRescue'))
+#print(funS.contarRobots(listaRobots,'ChapinRescue'))
+#print(funS.contarRobots(listaRobots,'ChapinFighter'))
 
 #for i in range(listaCiudades.getSize()):
 #    ciudad = listaCiudades.get(i)
