@@ -42,7 +42,6 @@ class Mision:
                 self.encontrarCaminos(tmpCiudad,clonCiudad.get(self.entradas.get(i).valor.getI(),self.entradas.get(i).valor.getJ()),camino,1)
                 camino = tmpCiudad.getCamino()
                 clonCiudad = self.getMision(clonCiudad,camino,'P')
-                self.fncP.printCiudad(clonCiudad)
                 Limpiar().limpiarConsola()
                 print('\nÚltima Misión De Rescate\nMisión Completada')
                 return
