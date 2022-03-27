@@ -3,12 +3,14 @@ from FncS import FuncionesS
 from FncP import FuncionesP
 from Mision import Mision
 
-fncP = FuncionesP()
-fncS = FuncionesS()
+funP = FuncionesP()
+funS = FuncionesS()
 pXML = ParseXML()
-archivo = 'ciudades.xml'
+archivo = 'entrada.xml'
 listaCiudades = pXML.getCiudades(archivo)
 listaRobots = pXML.getChapinRobots(archivo)
+
+print(funS.contarRescues(listaRobots,'ChapinRescue'))
 
 #for i in range(listaCiudades.getSize()):
 #    ciudad = listaCiudades.get(i)

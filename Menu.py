@@ -32,13 +32,16 @@ class Menu:
                     if listaCiudades and listaRobots:
                         if listaRobots.getSize() > 0:
                             if funS.hayObjetivos(listaCiudades,'C'):
-                                funS.verRescues(listaRobots,'ChapinRescue')
-                                while True:
-                                    indice = listaRobots.search(input('Ingrese el Nombre del ChapinRescue: '))
-                                    if indice != - 1:
-                                        rescue = listaRobots.get(indice)
-                                        if rescue.tipo == 'ChapinRescue':
-                                            break
+                                if funS.contarRescues(listaRobots,'ChapinRescue') > 1:
+                                    funS.verRescues(listaRobots,'ChapinRescue')
+                                    while True:
+                                        indice = listaRobots.search(input('Ingrese el Nombre del ChapinRescue: '))
+                                        if indice != - 1:
+                                            rescue = listaRobots.get(indice)
+                                            if rescue.tipo == 'ChapinRescue':
+                                                break
+                                else:
+                                    rescue = listaRobots.get(0)
                                 limpiar.limpiarConsola()
                                 print('\nChapinRescue Enviado: {}'.format(rescue.nombre))
                                 funS.ciudadesObjetivos(listaCiudades,'C')
