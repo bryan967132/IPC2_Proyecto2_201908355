@@ -49,6 +49,18 @@ class FuncionesS:
                 cadenaM += '\n'
         print(cadenaM)
     
+    def printVisitados(self,matriz):
+        cadenaM = ''
+        for i in range(matriz.getF()):
+            for j in range(matriz.getC()):
+                if matriz.get(i,j).isVisitado():
+                    cadenaM += 'true  '
+                else:
+                    cadenaM += 'false '
+            if i < matriz.getF() - 1:
+                cadenaM += '\n'
+        print(cadenaM)
+    
     def printPuntos(self,titulo,lista):
         print(titulo)
         for i in range(lista.getSize()):

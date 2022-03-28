@@ -3,6 +3,7 @@ from Limpiar import Limpiar
 from Lista import LstVctr,LstMtrz
 from Ciudad import Ciudad
 from Celda import Celda
+from Grafica import Grafica
 from FncP import FuncionesP
 from FncS import FuncionesS
 import sys
@@ -70,6 +71,7 @@ class Mision:
                 print('Unidad Civil Rescatada: {},{}'.format(x1 + 1,y1 + 1))
                 print('Robot Utilizado: {} (ChapinRescue)'.format(self.robot.nombre))
                 self.fncP.printCiudad(clonCiudad)
+                Grafica().exportR(x1 + 1,y1 + 1,self.robot.nombre,clonCiudad)
                 return
             except:
                 pass
@@ -98,6 +100,7 @@ class Mision:
                 print('\tCapacidad de Combate Inicial:',capIni)
                 print('\tCapacidad de Combate Final:',self.capFin)
                 self.fncP.printCiudad(clonCiudad)
+                Grafica().exportE(x1 + 1,y1 + 1,self.robot.nombre,capIni,self.capFin,clonCiudad)
                 return
             except:
                 pass
