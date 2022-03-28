@@ -59,7 +59,7 @@ class FuncionesS:
         print('Militares')
         for i in range(lista.getSize()):
             punto = lista.get(i)
-            print(punto.fila,',',punto.columna)
+            print(punto.fila,',',punto.columna,'Capacidad:',punto.capacidad)
     
     def verRobots(self,listaRobots,tipo):
         print('\n{} Disponibles'.format(tipo))
@@ -117,7 +117,10 @@ class FuncionesS:
         pares = LstMtrz(cantidad,2)
         c = 0
         par = 0
-        print('\nPosibles Objetivos Civiles')
+        if objetivo == 'C':
+            print('\nPosibles Objetivos Civiles')
+        elif objetivo == 'R':
+            print('\nPosibles Recursos Extraibles')
         for i in range(filas):
             for j in range(columnas):
                 if mapa.get(c).valor == objetivo:

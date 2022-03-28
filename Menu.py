@@ -49,9 +49,10 @@ class Menu:
                                 while True:
                                     indice = listaCiudades.search(input('Ingrese el Nombre de la Ciudad: '))
                                     if indice != - 1:
-                                        break
-                                ciudad = listaCiudades.get(indice)
-                                mision = Mision(ciudad.filas,ciudad.columnas,ciudad.mapa,ciudad.uMilitar)
+                                        ciudad = listaCiudades.get(indice)
+                                        if funS.contarObjetivos(ciudad.mapa,'C') > 0:
+                                            break
+                                mision = Mision(ciudad.filas,ciudad.columnas,ciudad.mapa,ciudad.uMilitar,rescue)
                                 mision.generarPlanoRescate()
                                 uCiviles = funS.contarObjetivos(ciudad.mapa,'C')
                                 limpiar.limpiarConsola()
@@ -78,7 +79,50 @@ class Menu:
                 elif opcion == 3:
                     limpiar.limpiarConsola()
                     if listaCiudades and listaRobots:
-                        pass
+                        cantRobots = funS.contarRobots(listaRobots,'ChapinFighter')
+                        if cantRobots > 0:
+                            if funS.hayObjetivos(listaCiudades,'R'):
+                                if cantRobots > 1:
+                                    funS.verRobots(listaRobots,'ChapinFighter')
+                                    while True:
+                                        indice = listaRobots.search(input('Ingrese el Nombre del ChapinFighter: '))
+                                        if indice != - 1:
+                                            fighter = listaRobots.get(indice)
+                                            if fighter.tipo == 'ChapinFighter':
+                                                break
+                                else:
+                                    fighter = funS.unicoRobot(listaRobots,'ChapinRescue')
+                                limpiar.limpiarConsola()
+                                print('\nChapinFighter Enviado: {}'.format(fighter.nombre))
+                                funS.ciudadesObjetivos(listaCiudades,'R')
+                                while True:
+                                    indice = listaCiudades.search(input('Ingrese el Nombre de la Ciudad: '))
+                                    if indice != - 1:
+                                        ciudad = listaCiudades.get(indice)
+                                        if funS.contarObjetivos(ciudad.mapa,'R') > 0:
+                                            break
+                                mision = Mision(ciudad.filas,ciudad.columnas,ciudad.mapa,ciudad.uMilitar,fighter)
+                                mision.generarPlanoExtraccion()
+                                uRecursos = funS.contarObjetivos(ciudad.mapa,'R')
+                                limpiar.limpiarConsola()
+                                if uRecursos > 1:
+                                    funS.printCiudad(ciudad)
+                                    pares = funS.verObjetivos(ciudad.filas,ciudad.columnas,ciudad.mapa,'R',uRecursos)
+                                    while True:
+                                        try:
+                                            parR = int(input('Ingrese el número del objetivo: '))
+                                            if parR >= 1 and parR <= pares.getF():
+                                                mision.iniciarExtraccion(pares.get(parR - 1,0).valor,pares.get(parR - 1,1).valor)
+                                                break
+                                        except:
+                                            pass
+                                else:
+                                    par = funS.unicoObjetivo(ciudad.filas,ciudad.columnas,ciudad.mapa,'R')
+                                    mision.iniciarExtraccion(par.get(0).valor,par.get(1).valor)
+                            else:
+                                print('\nTodas las ciudades están despejadas de recursos')
+                        else:
+                            print('\nNo hay robots ChapinFighter disponibles')
                     else:
                         print('\nNo se han cargado configuraciones')
                 elif opcion == 4:

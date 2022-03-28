@@ -1,10 +1,12 @@
 from Constructores import ValorVctr
 from Lista import LstVctr
+import sys
 class Ciudad:
     def __init__(self,ciudad):
         self.ciudad = ciudad
         self.caminos = LstVctr()
         self.nCmn = 0
+        self.transitables = 0
     
     def arribaDisponible(self,celdaActual,celdaDestino):
         if celdaDestino and not celdaDestino.isVisitado():
@@ -40,8 +42,8 @@ class Ciudad:
             self.nCmn += 1
     
     def getCamino(self):
-        for i in range(self.caminos.getSize() - 1):
-            for j in range(self.caminos.getSize() - i - 1):
-                if self.caminos.get(j).valor.getSize() > self.caminos.get(j + 1).valor.getSize():
-                    self.caminos.change(j,j + 1)
+        for j in range(self.caminos.getSize() - 1):
+            for i in range(self.caminos.getSize() - j - 1):
+                if self.caminos.get(i).valor.getSize() > self.caminos.get(i + 1).valor.getSize():
+                    self.caminos.change(i,i + 1)
         return self.caminos.get(0).valor

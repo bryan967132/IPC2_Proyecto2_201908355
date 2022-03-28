@@ -26,10 +26,10 @@ class ParseXML:
             listaMilitares = LstVctr()
             contador1 = 0
             for unidadM in ciudad.getElementsByTagName('unidadMilitar'):
-                vida = unidadM.firstChild.data.strip()
+                capacidad = int(unidadM.firstChild.data)
                 posX = int(unidadM.attributes['columna'].value) - 1
                 posY = int(unidadM.attributes['fila'].value) - 1
-                listaMilitares.insert(UMilitar(contador1,posY,posX,vida))
+                listaMilitares.insert(UMilitar(contador1,posY,posX,capacidad))
                 contador1 += 1
             indice = self.listaCiudades.search(nombre)
             if indice != - 1:
