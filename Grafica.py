@@ -8,6 +8,7 @@ class Grafica:
         reporte += self.getClose()
         with open('ArchivoMision/Rescate.txt','w') as rescate:
             rescate.write(reporte)
+        
 
     def exportE(self,x,y,robot,capIni,capFin,ciudad):
         reporte = self.getHead()
@@ -141,7 +142,7 @@ class Grafica:
         label=<
             <table border="0" cellborder="1" cellspacing="0" cellpadding="0">
                 <tr>
-                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Tipo de Mision: Extracción de Recursos</td>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Tipo de Mision: Extraccion de Recursos</td>
                 </tr>
                 <tr>
                     <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Recurso Extraido: """ + str(x) + """,""" + str(y) + """</td>

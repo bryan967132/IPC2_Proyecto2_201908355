@@ -414,7 +414,7 @@ digraph {
         label=<
             <table border="0" cellborder="1" cellspacing="0" cellpadding="0">
                 <tr>
-                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Tipo de Mision: Extracción de Recursos</td>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Tipo de Mision: Extraccion de Recursos</td>
                 </tr>
                 <tr>
                     <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Recurso Extraido: 7,19</td>
