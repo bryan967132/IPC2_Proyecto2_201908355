@@ -42,21 +42,8 @@ class Ciudad:
             self.nCmn += 1
     
     def getCamino(self):
-        if self.caminos.getSize() <= 500:
-            sys.setrecursionlimit(20000)
-            self.orden(self.caminos.getSize())
+        for j in range(self.caminos.getSize() - 1):
+            for i in range(self.caminos.getSize() - j - 1):
+                if self.caminos.get(i).valor.getSize() > self.caminos.get(i + 1).valor.getSize():
+                    self.caminos.change(i,i + 1)
         return self.caminos.get(0).valor
-    
-    def orden(self,longitud):
-        if longitud == 1:
-            return
-        self.orden2(0,longitud - 1)
-        self.orden(longitud - 1)
-    
-    def orden2(self,i,longitud):
-        if i == longitud:
-            return
-        if self.caminos.get(i).valor.getSize() > self.caminos.get(i + 1).valor.getSize():
-            self.caminos.change(i,i + 1)
-        self.orden2(i + 1,longitud)
-    

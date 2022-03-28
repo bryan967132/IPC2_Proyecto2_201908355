@@ -10,6 +10,7 @@ class Mision:
     def __init__(self,filas,columnas,mapa,militares,robot):
         self.fncP = FuncionesP()
         self.fncS = FuncionesS()
+        self.caminosT = 0
         self.filas = filas
         self.columnas = columnas
         self.mapa = self.fncP.clonarVctr(mapa)
@@ -211,8 +212,10 @@ class Mision:
         return x >= 0 and x < ciudad.getF() and y >= 0 and y < ciudad.getC()
     
     def encontrarCaminosR(self,ciudad,celdaActual,camino,n):
+        if self.caminosT > 250: return
         if celdaActual.isFin():
             ciudad.agregarCamino(self.fncP.clonarVctr(camino))
+            self.caminosT += 1
         else:
             movimientos = LstMtrz(4,2)
             movimientos.insert(ValorMtrz(0,0,-1));movimientos.insert(ValorMtrz(0,1,0))
@@ -253,8 +256,10 @@ class Mision:
                         camino.remove(n)
     
     def encontrarCaminosE(self,ciudad,celdaActual,camino,capacidad,n):
+        if self.caminosT > 250: return
         if celdaActual.isFin() and capacidad > 0:
             ciudad.agregarCamino(self.fncP.clonarVctr(camino))
+            self.caminosT += 1
         else:
             movimientos = LstMtrz(4,2)
             movimientos.insert(ValorMtrz(0,0,-1));movimientos.insert(ValorMtrz(0,1,0))
@@ -312,9 +317,11 @@ class Mision:
             celda = ciudad.get(cmn.getI(),cmn.getJ())
             if celda.getCaracter() == ' ':
                 celda.setCaracter(caracter)
+                celda.setVisitado(True)
             if mision == 'Extraccion':
                 if celda.getCaracter() == 'M':
                     self.capFin -= self.getCapacidadMilitar(celda.getI(),celda.getJ())
+                    celda.setVisitado(True)
         return ciudad
     
     def getCapacidadMilitar(self,x,y):
