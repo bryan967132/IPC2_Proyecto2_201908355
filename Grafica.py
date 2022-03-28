@@ -1,3 +1,4 @@
+import os
 class Grafica:
     def exportR(self,x,y,robot,ciudad):
         reporte = self.getHead()
@@ -8,6 +9,7 @@ class Grafica:
         reporte += self.getClose()
         with open('ArchivoMision/Rescate.txt','w') as rescate:
             rescate.write(reporte)
+        os.system('dot -Tpdf ArchivoMision/Rescate.txt -o Rescate.pdf')
         
 
     def exportE(self,x,y,robot,capIni,capFin,ciudad):
@@ -17,8 +19,9 @@ class Grafica:
         reporte += self.getResumenE(x,y,robot,capIni,capFin)
         reporte += self.getConeccion()
         reporte += self.getClose()
-        with open('ArchivoMision/Extraccion.txt','w') as rescate:
-            rescate.write(reporte)
+        with open('ArchivoMision/Extraccion.txt','w') as extraccion:
+            extraccion.write(reporte)
+        os.system('dot -Tpdf ArchivoMision/Extraccion.txt -o Extraccion.pdf')
 
     def getHead(self):
         return """digraph {
