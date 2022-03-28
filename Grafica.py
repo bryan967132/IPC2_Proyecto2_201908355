@@ -1,4 +1,3 @@
-from FncS import FuncionesS
 class Grafica:
     def exportR(self,x,y,robot,ciudad):
         reporte = self.getHead()
