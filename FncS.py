@@ -191,7 +191,7 @@ class FuncionesS:
         print('╠══════════════════════════════════════════════════════╣')
         print('║                                                      ║')
         print('║      Tipo de Misión: Rescate                         ║')
-        var = 'Unidad Civil Rescatada: {},{}'.format(x1,y1)
+        var = 'Unidad Civil Objetivo: {},{}'.format(x1,y1)
         for i in range(1,49 - len(var)):
             var += ' '
         print('║      ' + var + '║')
@@ -212,7 +212,7 @@ class FuncionesS:
         print('╠══════════════════════════════════════════════════════╣')
         print('║                                                      ║')
         print('║      Tipo de Misión: Extracción de Recursos          ║')
-        var = 'Recurso Extraido: {},{}'.format(x1 + 1,y1 + 1)
+        var = 'Recurso Extraido: {},{}'.format(x1,y1)
         for i in range(1,49 - len(var)):
             var += ' '
         print('║      ' + var + '║')
