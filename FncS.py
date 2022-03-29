@@ -1,6 +1,7 @@
 from Lista import LstMtrz,LstVctr
 from FncP import FuncionesP
 from Constructores import ValorMtrz,ValorVctr
+from Grafica import Grafica
 class FuncionesS:
     def lstVctrToMtrz(self,filas,columnas,vector):
         matriz = LstMtrz(filas,columnas)
@@ -25,6 +26,12 @@ class FuncionesS:
         mapa = fncP.ubicarM(self.lstVctrToMtrz(ciudad.filas,ciudad.columnas,fncP.clonarVctr(ciudad.mapa)),ciudad.uMilitar)
         print("\n{}".format(ciudad.nombre))
         self.printMtrz(mapa)
+    
+    def exportCiudad(self,ciudad):
+        fncP = FuncionesP()
+        mapa = fncP.ubicarM(self.lstVctrToMtrz(ciudad.filas,ciudad.columnas,fncP.clonarVctr(ciudad.mapa)),ciudad.uMilitar)
+        Grafica().exportCiudad(mapa)
+        #self.printMtrz(mapa)
     
     def printMtrz(self,matriz):
         cadenaM = ''

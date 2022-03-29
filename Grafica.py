@@ -57,6 +57,18 @@ class Grafica:
         print('Reporte de Misión Generado')
         webbrowser.open('Imposible.pdf')
 
+    def exportCiudad(self,ciudad):
+        reporte = self.getHead()
+        reporte += self.getCiudad(ciudad)
+        reporte += self.getTiposC()
+        reporte += self.getConeccionCT()
+        reporte += self.getClose()
+        with open('ArchivoMision/Ciudad.txt','w') as ciudad:
+            ciudad.write(reporte)
+        os.system('dot -Tpdf ArchivoMision/Ciudad.txt -o Ciudad.pdf')
+        print('Mapa de Ciudad Generada')
+        webbrowser.open('Ciudad.pdf')
+
     def getHead(self):
         return """digraph {
     node [shape = none fontcolor="#000000" fontsize="35" fontname="Calibri"]"""
@@ -108,6 +120,51 @@ class Grafica:
                 if celda.getCaracter() == 'P':
                     ciudadS += """
                     <td color="#F2F2F2" bgcolor = "#FFE699" height = "64" width = "75"></td>"""
+            ciudadS += """
+                </tr>"""
+        ciudadS += """
+            </table>
+        >
+    ];"""
+        return ciudadS
+
+    def getCiudad(self,ciudad):
+        ciudadS = """
+    ciudad[
+        label=<
+            <table border="0" cellborder="1" cellspacing="0" cellpadding="0">"""
+        ciudadS += """
+                <tr>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75"></td>"""
+        for j in range(ciudad.getC()):
+            ciudadS += """
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">""" + str(j + 1) + """</td>"""
+        ciudadS += """
+                </tr>"""
+        for i in range(ciudad.getF()):
+            ciudadS += """
+                <tr>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">""" + str(i + 1) + """</td>"""
+            for j in range(ciudad.getC()):
+                celda = ciudad.get(i,j).valor
+                if celda == '*':
+                    ciudadS += """
+                    <td color="#F2F2F2" bgcolor = "#000000" height = "64" width = "75"></td>"""
+                elif celda == ' ':
+                    ciudadS += """
+                    <td color="#F2F2F2" bgcolor = "#FFFFFF" height = "64" width = "75"></td>"""
+                elif celda == 'E':
+                    ciudadS += """
+                    <td color="#F2F2F2" bgcolor = "#70AD47" height = "64" width = "75"></td>"""
+                elif celda == 'C':
+                    ciudadS += """
+                    <td color="#F2F2F2" bgcolor = "#2F75B5" height = "64" width = "75"></td>"""
+                elif celda == 'R':
+                    ciudadS += """
+                    <td color="#F2F2F2" bgcolor = "#7B7B7B" height = "64" width = "75"></td>"""
+                elif celda == 'M':
+                    ciudadS += """
+                    <td color="#F2F2F2" bgcolor = "#C00000" height = "64" width = "75"></td>"""
             ciudadS += """
                 </tr>"""
         ciudadS += """

@@ -1,6 +1,7 @@
 from ParseXML import ParseXML
 from FncS import FuncionesS
 from FncP import FuncionesP
+from Grafica import Grafica
 from Mision import Mision
 
 funP = FuncionesP()
@@ -19,6 +20,9 @@ listaRobots = pXML.getChapinRobots(archivo)
 
 funS.verRobots(listaRobots,'ChapinRescue')
 funS.verRobots(listaRobots,'ChapinFighter')
+
+ciudad = listaCiudades.get(listaCiudades.search('ciudadguate'))
+funS.exportCiudad(ciudad)
 
 #for i in range(listaCiudades.getSize()):
 #    ciudad = listaCiudades.get(i)
