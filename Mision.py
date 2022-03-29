@@ -79,6 +79,7 @@ class Mision:
         print('Tipo de Misión: Rescate')
         print('Unidad Civil Objetivo: {},{}'.format(x1 + 1,y1 + 1))
         print('Robot Utilizado: {} (ChapinRescue)'.format(self.robot.nombre))
+        Grafica().exportRF(x1 + 1,y1 + 1,self.robot.nombre,clonCiudad)
     
     def iniciarExtraccion(self,x1,y1):
         sys.setrecursionlimit(20000)
@@ -110,6 +111,7 @@ class Mision:
         print('Tipo de Misión: Extracción de Recursos')
         print('Unidad Civil Objetivo: {},{}'.format(x1 + 1,y1 + 1))
         print('Robot Utilizado: {} (ChapinRescue)'.format(self.robot.nombre))
+        Grafica().exportEF(x1 + 1,y1 + 1,self.robot.nombre,clonCiudad)
 
     def getciudad(self,filas,columnas):
         self.entradas = LstVctr()

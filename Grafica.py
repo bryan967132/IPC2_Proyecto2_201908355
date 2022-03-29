@@ -26,6 +26,27 @@ class Grafica:
 
     def exportRF(self,x,y,robot,ciudad):
         reporte = self.getHead()
+        reporte += self.getMapa(ciudad)
+        reporte += self.getTiposC()
+        reporte += self.getResumenRF(x,y,robot)
+        reporte += self.getConeccionCT()
+        reporte += self.getConeccionTR()
+        reporte += self.getClose()
+        with open('ArchivoMision/Imposible.txt','w') as rescate:
+            rescate.write(reporte)
+        os.system('dot -Tpdf ArchivoMision/Imposible.txt -o Imposible.pdf')
+
+    def exportEF(self,x,y,robot,ciudad):
+        reporte = self.getHead()
+        reporte += self.getMapa(ciudad)
+        reporte += self.getTiposC()
+        reporte += self.getResumenEF(x,y,robot)
+        reporte += self.getConeccionCT()
+        reporte += self.getConeccionTR()
+        reporte += self.getClose()
+        with open('ArchivoMision/Imposible.txt','w') as rescate:
+            rescate.write(reporte)
+        os.system('dot -Tpdf ArchivoMision/Imposible.txt -o Imposible.pdf')
 
     def getHead(self):
         return """digraph {
@@ -137,7 +158,28 @@ class Grafica:
                     <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Unidad Civil Rescatada: """ + str(x) + """,""" + str(y) + """</td>
                 </tr>
                 <tr>
-                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Robot utilizado: """ + robot + """ (ChapinRescue)</td>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Robot Utilizado: """ + robot + """ (ChapinRescue)</td>
+                </tr>
+            </table>
+        >
+    ];"""
+
+    def getResumenRF(self,x,y,robot):
+        return """
+    resumen[
+        label=<
+            <table border="0" cellborder="1" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Tipo de Mision: Rescate</td>
+                </tr>
+                <tr>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Unidad Civil Objetivo: """ + str(x) + """,""" + str(y) + """</td>
+                </tr>
+                <tr>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Robot Utilizado: """ + robot + """ (ChapinRescue)</td>
+                </tr>
+                <tr>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">MISION IMPOSIBLE</td>
                 </tr>
             </table>
         >
@@ -155,7 +197,34 @@ class Grafica:
                     <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Recurso Extraido: """ + str(x) + """,""" + str(y) + """</td>
                 </tr>
                 <tr>
-                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Robot utilizado: """ + robot + """ (ChapinFighter - Capacidad de combate inicial """ + str(capIni) + """, Capacidad de combate final """ + str(capFin) + """)</td>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Robot Utilizado: """ + robot + """ (ChapinFighter)</td>
+                </tr>
+                <tr>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Capacidad de Combate Inicial: """ + str(capIni) + """</td>
+                </tr>
+                <tr>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Capacidad de Combate Final: """ + str(capFin) + """</td>
+                </tr>
+            </table>
+        >
+    ];"""
+
+    def getResumenEF(self,x,y,robot):
+        return """
+    resumen[
+        label=<
+            <table border="0" cellborder="1" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Tipo de Mision: Extraccion de Recursos</td>
+                </tr>
+                <tr>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Recurso Extraido: """ + str(x) + """,""" + str(y) + """</td>
+                </tr>
+                <tr>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Robot Utilizado: """ + robot + """ (ChapinFighter)</td>
+                </tr>
+                <tr>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">MISION IMPOSIBLE</td>
                 </tr>
             </table>
         >
