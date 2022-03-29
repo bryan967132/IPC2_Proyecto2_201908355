@@ -10,8 +10,15 @@ archivo = 'ciudades.xml'
 listaCiudades = pXML.getCiudades(archivo)
 listaRobots = pXML.getChapinRobots(archivo)
 
-#print(funS.contarRobots(listaRobots,'ChapinRescue'))
-#print(funS.contarRobots(listaRobots,'ChapinFighter'))
+funS.verRobots(listaRobots,'ChapinRescue')
+funS.verRobots(listaRobots,'ChapinFighter')
+
+archivo = 'entrada.xml'
+listaCiudades = pXML.getCiudades(archivo)
+listaRobots = pXML.getChapinRobots(archivo)
+
+funS.verRobots(listaRobots,'ChapinRescue')
+funS.verRobots(listaRobots,'ChapinFighter')
 
 #for i in range(listaCiudades.getSize()):
 #    ciudad = listaCiudades.get(i)
@@ -29,23 +36,23 @@ listaRobots = pXML.getChapinRobots(archivo)
 #funS.verRobots(listaRobots,'ChapinRescue')
 #funS.verRobots(listaRobots,'ChapinFighter')
 
-ciudad = listaCiudades.get(listaCiudades.search('CiudadGotica'))
-rescue = listaRobots.get(listaRobots.search('Ironman'))
-rescate1 = Mision(ciudad.filas,ciudad.columnas,ciudad.mapa,ciudad.uMilitar,rescue)
-rescate1.generarPlanoRescate()
-rescate1.iniciarRescate(13,18)
+#ciudad = listaCiudades.get(listaCiudades.search('CiudadGotica'))
+#rescue = listaRobots.get(listaRobots.search('Ironman'))
+#rescate1 = Mision(ciudad.filas,ciudad.columnas,ciudad.mapa,ciudad.uMilitar,rescue)
+#rescate1.generarPlanoRescate()
+#rescate1.iniciarRescate(13,18)
+
+#ciudad = listaCiudades.get(listaCiudades.search('CiudadGotica'))
+#fight = listaRobots.get(listaRobots.search('Robocop'))
+#extraccion1 = Mision(ciudad.filas,ciudad.columnas,ciudad.mapa,ciudad.uMilitar,fight)
+#extraccion1.generarPlanoExtraccion()
+#extraccion1.iniciarExtraccion(6,18)
 
 #ciudad = listaCiudades.get(listaCiudades.search('CiudadGotica'))
 #rescue = listaRobots.get(listaRobots.search('Ironman'))
 #rescate2 = Mision(ciudad.filas,ciudad.columnas,ciudad.mapa,ciudad.uMilitar,rescue)
 #rescate2.generarPlanoRescate()
 #rescate2.iniciarRescate(2,15)
-
-ciudad = listaCiudades.get(listaCiudades.search('CiudadGotica'))
-fight = listaRobots.get(listaRobots.search('Robocop'))
-extraccion1 = Mision(ciudad.filas,ciudad.columnas,ciudad.mapa,ciudad.uMilitar,fight)
-extraccion1.generarPlanoExtraccion()
-extraccion1.iniciarExtraccion(6,18)
 
 #ciudad = listaCiudades.get(listaCiudades.search('CiudadGotica'))
 #fight = listaRobots.get(listaRobots.search('Robocop'))
@@ -59,8 +66,8 @@ extraccion1.iniciarExtraccion(6,18)
 #rescate3.generarPlanoRescate()
 #rescate3.iniciarRescate(7,9)
 
-ciudad = listaCiudades.get(listaCiudades.search('CiudadGuate'))
-fight = listaRobots.get(listaRobots.search('Megatron'))
-extraccion3 = Mision(ciudad.filas,ciudad.columnas,ciudad.mapa,ciudad.uMilitar,fight)
-extraccion3.generarPlanoExtraccion()
-extraccion3.iniciarExtraccion(9,9)
+#ciudad = listaCiudades.get(listaCiudades.search('CiudadGuate'))
+#fight = listaRobots.get(listaRobots.search('Megatron'))
+#extraccion3 = Mision(ciudad.filas,ciudad.columnas,ciudad.mapa,ciudad.uMilitar,fight)
+#extraccion3.generarPlanoExtraccion()
+#extraccion3.iniciarExtraccion(9,9)
