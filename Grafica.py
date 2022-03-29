@@ -5,7 +5,8 @@ class Grafica:
         reporte += self.getMapa(ciudad)
         reporte += self.getTiposC()
         reporte += self.getResumenR(x,y,robot)
-        reporte += self.getConeccion()
+        reporte += self.getConeccionCT()
+        reporte += self.getConeccionTR()
         reporte += self.getClose()
         with open('ArchivoMision/Rescate.txt','w') as rescate:
             rescate.write(reporte)
@@ -16,11 +17,15 @@ class Grafica:
         reporte += self.getMapa(ciudad)
         reporte += self.getTiposC()
         reporte += self.getResumenE(x,y,robot,capIni,capFin)
-        reporte += self.getConeccion()
+        reporte += self.getConeccionCT()
+        reporte += self.getConeccionTR()
         reporte += self.getClose()
         with open('ArchivoMision/Extraccion.txt','w') as extraccion:
             extraccion.write(reporte)
         os.system('dot -Tpdf ArchivoMision/Extraccion.txt -o Extraccion.pdf')
+
+    def exportRF(self,x,y,robot,ciudad):
+        reporte = self.getHead()
 
     def getHead(self):
         return """digraph {
@@ -156,7 +161,10 @@ class Grafica:
         >
     ];"""
 
-    def getConeccion(self):
+    def getConeccionCT(self):
         return """
-    ciudad -> tiposC [color="white"]
+    ciudad -> tiposC [color="white"]"""
+
+    def getConeccionTR(self):
+        return """
     tiposC -> resumen [color="white"]"""
