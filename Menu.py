@@ -125,12 +125,12 @@ class Menu:
                     else:
                         print('\nNo se han cargado configuraciones')
                 elif opcion == 4:
-                    limpiar.limpiarConsola()
                     if listaCiudades and listaRobots:
                         indice = listaCiudades.search(input('\nIngrese el Nombre de la Ciudad: '))
                         if indice != - 1:
                             ciudad = listaCiudades.get(indice)
-                            funS.printCiudad(ciudad)
+                            limpiar.limpiarConsola()
+                            funS.exportCiudad(ciudad)
                         else:
                             print('\nLa ciudad no se encuentra registrada')
                     else:
