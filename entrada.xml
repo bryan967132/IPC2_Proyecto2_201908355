@@ -6,7 +6,7 @@
             <fila numero="1">"********************"</fila>
             <fila numero="2">"*** **             *"</fila>
             <fila numero="3">"*** *****E***** ****"</fila>
-            <fila numero="4">"*** ***** ***** ***R"</fila>
+            <fila numero="4">"*** ***** ***** *** "</fila>
             <fila numero="5">"E                   "</fila>
             <fila numero="6">"*** ** ** ** ** ****"</fila>
             <fila numero="7">"*** ** ** ** ** **R*"</fila>
@@ -15,7 +15,7 @@
             <fila numero="10">"*** ** ** ** ** ****"</fila>
             <fila numero="11">"***                *"</fila>
             <fila numero="12">"*** ** ** ** ** ****"</fila>
-            <fila numero="13">"*** **  E ** *R ****"</fila>
+            <fila numero="13">"*** **  E ** *  ****"</fila>
             <fila numero="14">"*** *****         C*"</fila>
             <fila numero="15">"*** ***** ***** ****"</fila>
             <unidadMilitar fila="5" columna="14">20</unidadMilitar>
@@ -32,7 +32,7 @@
             <nombre tipo="ChapinRescue">robot01</nombre>
         </robot>
         <robot>
-            <nombre tipo="ChapinFighter" capacidad="300">OptimusPrime</nombre>
+            <nombre tipo="ChapinFighter" capacidad="40">OptimusPrime</nombre>
         </robot>
         <robot>
             <nombre tipo="ChapinRescue">Megatron</nombre>
