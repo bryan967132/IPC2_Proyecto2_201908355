@@ -11,18 +11,18 @@ archivo = 'ciudades.xml'
 listaCiudades = pXML.getCiudades(archivo)
 listaRobots = pXML.getChapinRobots(archivo)
 
-funS.verRobots(listaRobots,'ChapinRescue')
-funS.verRobots(listaRobots,'ChapinFighter')
+#funS.verRobots(listaRobots,'ChapinRescue')
+#funS.verRobots(listaRobots,'ChapinFighter')
 
-archivo = 'entrada.xml'
-listaCiudades = pXML.getCiudades(archivo)
-listaRobots = pXML.getChapinRobots(archivo)
+#archivo = 'entrada.xml'
+#listaCiudades = pXML.getCiudades(archivo)
+#listaRobots = pXML.getChapinRobots(archivo)
 
-funS.verRobots(listaRobots,'ChapinRescue')
-funS.verRobots(listaRobots,'ChapinFighter')
+#funS.verRobots(listaRobots,'ChapinRescue')
+#funS.verRobots(listaRobots,'ChapinFighter')
 
-ciudad = listaCiudades.get(listaCiudades.search('ciudadguate'))
-funS.exportCiudad(ciudad)
+#ciudad = listaCiudades.get(listaCiudades.search('ciudadguate'))
+#funS.exportCiudad(ciudad)
 
 #for i in range(listaCiudades.getSize()):
 #    ciudad = listaCiudades.get(i)

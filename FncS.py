@@ -161,3 +161,95 @@ class FuncionesS:
                     parCoord.insert(ValorVctr(1,j))
                     return parCoord
                 c += 1
+    
+    def printMisionR(self,x1,y1,nombre):
+        print('\n╔══════════════════════════════════════════════════════╗')
+        print('║                                                      ║')
+        print('║      Última Misión: MISIÓN COMPLETADA                ║')
+        print('║                                                      ║')
+        print('╠══════════════════════════════════════════════════════╣')
+        print('║                                                      ║')
+        print('║      Tipo de Misión: Rescate                         ║')
+        var = 'Unidad Civil Rescatada: {},{}'.format(x1,y1)
+        for i in range(1,49 - len(var)):
+            var += ' '
+        print('║      ' + var + '║')
+        var = 'Robot Utilizado: {} (ChapinRescue)'.format(nombre)
+        for i in range(1,49 - len(var)):
+            var += ' '
+        print('║      ' + var + '║')
+        print('║                                                      ║')
+        print('║      REPORTE DE MISIÓN GENERADO                      ║')
+        print('║                                                      ║')
+        print('╚══════════════════════════════════════════════════════╝')
+
+    def printMisionRF(self,x1,y1,nombre):
+        print('\n╔══════════════════════════════════════════════════════╗')
+        print('║                                                      ║')
+        print('║      Última Misión: MISIÓN IMPOSIBLE                 ║')
+        print('║                                                      ║')
+        print('╠══════════════════════════════════════════════════════╣')
+        print('║                                                      ║')
+        print('║      Tipo de Misión: Rescate                         ║')
+        var = 'Unidad Civil Rescatada: {},{}'.format(x1,y1)
+        for i in range(1,49 - len(var)):
+            var += ' '
+        print('║      ' + var + '║')
+        var = 'Robot Utilizado: {} (ChapinRescue)'.format(nombre)
+        for i in range(1,49 - len(var)):
+            var += ' '
+        print('║      ' + var + '║')
+        print('║                                                      ║')
+        print('║      REPORTE DE MISIÓN GENERADO                      ║')
+        print('║                                                      ║')
+        print('╚══════════════════════════════════════════════════════╝')
+
+    def printMisionE(self,x1,y1,nombre,capIni,capFin):
+        print('\n╔══════════════════════════════════════════════════════╗')
+        print('║                                                      ║')
+        print('║      Última Misión: MISIÓN COMPLETADA                ║')
+        print('║                                                      ║')
+        print('╠══════════════════════════════════════════════════════╣')
+        print('║                                                      ║')
+        print('║      Tipo de Misión: Extracción de Recursos          ║')
+        var = 'Recurso Extraido: {},{}'.format(x1 + 1,y1 + 1)
+        for i in range(1,49 - len(var)):
+            var += ' '
+        print('║      ' + var + '║')
+        var = 'Robot Utilizado: {} (ChapinFighter)'.format(nombre)
+        for i in range(1,49 - len(var)):
+            var += ' '
+        print('║      ' + var + '║')
+        var = '    Capacidad de Combate Inicial: {}'.format(capIni)
+        for i in range(1,49 - len(var)):
+            var += ' '
+        print('║      ' + var + '║')
+        var = '    Capacidad de Combate Final: {}'.format(capFin)
+        for i in range(1,49 - len(var)):
+            var += ' '
+        print('║      ' + var + '║')
+        print('║                                                      ║')
+        print('║      REPORTE DE MISIÓN GENERADO                      ║')
+        print('║                                                      ║')
+        print('╚══════════════════════════════════════════════════════╝')
+
+    def printMisionEF(self,x1,y1,nombre):
+        print('\n╔══════════════════════════════════════════════════════╗')
+        print('║                                                      ║')
+        print('║      Última Misión: MISIÓN IMPOSIBLE                 ║')
+        print('║                                                      ║')
+        print('╠══════════════════════════════════════════════════════╣')
+        print('║                                                      ║')
+        print('║      Tipo de Misión: Extracción de Recursos          ║')
+        var = 'Recurso Objetivo: {},{}'.format(x1,y1)
+        for i in range(1,49 - len(var)):
+            var += ' '
+        print('║      ' + var + '║')
+        var = 'Robot Utilizado: {} (ChapinFighter)'.format(nombre)
+        for i in range(1,49 - len(var)):
+            var += ' '
+        print('║      ' + var + '║')
+        print('║                                                      ║')
+        print('║      REPORTE DE MISIÓN GENERADO                      ║')
+        print('║                                                      ║')
+        print('╚══════════════════════════════════════════════════════╝')
