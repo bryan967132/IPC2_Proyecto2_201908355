@@ -100,8 +100,8 @@ class Mision:
                 print('Tipo de Misión: Extracción de Recursos')
                 print('Recurso Extraido: {},{}'.format(x1 + 1,y1 + 1))
                 print('Robot Utilizado: {} (ChapinFighter)'.format(self.robot.nombre))
-                print('\tCapacidad de Combate Inicial:',capIni)
-                print('\tCapacidad de Combate Final:',self.capFin)
+                print('   Capacidad de Combate Inicial:',capIni)
+                print('   Capacidad de Combate Final:',self.capFin)
                 Grafica().exportE(x1 + 1,y1 + 1,self.robot.nombre,capIni,self.capFin,clonCiudad)
                 return
             except:

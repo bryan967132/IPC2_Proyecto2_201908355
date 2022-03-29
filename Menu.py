@@ -8,13 +8,12 @@ class Menu:
         pXML = ParseXML()
         limpiar = Limpiar()
         limpiar.limpiarConsola()
-        funP = FuncionesP()
         funS = FuncionesS()
         listaCiudades = None
         listaRobots = None
         opcion = 0
         while opcion != 5:
-            #try:
+            try:
                 self.opciones()
                 opcion = int(input('Opción: '))
                 if opcion == 1:
@@ -126,9 +125,9 @@ class Menu:
                     else:
                         print('\nNo se han cargado configuraciones')
                 elif opcion == 4:
+                    limpiar.limpiarConsola()
                     if listaCiudades and listaRobots:
                         indice = listaCiudades.search(input('\nIngrese el Nombre de la Ciudad: '))
-                        limpiar.limpiarConsola()
                         if indice != - 1:
                             ciudad = listaCiudades.get(indice)
                             funS.printCiudad(ciudad)
@@ -141,9 +140,9 @@ class Menu:
                 else:
                     limpiar.limpiarConsola()
                     print('\nSolo números entre 1 y 4')
-            #except:
-            #    limpiar.limpiarConsola()
-            #    print('\nOpción Inválida')
+            except:
+                limpiar.limpiarConsola()
+                print('\nOpción Inválida')
 
     def opciones(self):
         print("""

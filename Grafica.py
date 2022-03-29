@@ -1,3 +1,4 @@
+import webbrowser
 import os
 class Grafica:
     def exportR(self,x,y,robot,ciudad):
@@ -11,6 +12,8 @@ class Grafica:
         with open('ArchivoMision/Rescate.txt','w') as rescate:
             rescate.write(reporte)
         os.system('dot -Tpdf ArchivoMision/Rescate.txt -o Rescate.pdf')
+        print('Reporte de Misión Generado')
+        webbrowser.open('Rescate.pdf')
 
     def exportE(self,x,y,robot,capIni,capFin,ciudad):
         reporte = self.getHead()
@@ -23,6 +26,8 @@ class Grafica:
         with open('ArchivoMision/Extraccion.txt','w') as extraccion:
             extraccion.write(reporte)
         os.system('dot -Tpdf ArchivoMision/Extraccion.txt -o Extraccion.pdf')
+        print('Reporte de Misión Generado')
+        webbrowser.open('Extraccion.pdf')
 
     def exportRF(self,x,y,robot,ciudad):
         reporte = self.getHead()
@@ -35,6 +40,8 @@ class Grafica:
         with open('ArchivoMision/Imposible.txt','w') as rescate:
             rescate.write(reporte)
         os.system('dot -Tpdf ArchivoMision/Imposible.txt -o Imposible.pdf')
+        print('Reporte de Misión Generado')
+        webbrowser.open('Imposible.pdf')
 
     def exportEF(self,x,y,robot,ciudad):
         reporte = self.getHead()
@@ -47,6 +54,8 @@ class Grafica:
         with open('ArchivoMision/Imposible.txt','w') as rescate:
             rescate.write(reporte)
         os.system('dot -Tpdf ArchivoMision/Imposible.txt -o Imposible.pdf')
+        print('Reporte de Misión Generado')
+        webbrowser.open('Imposible.pdf')
 
     def getHead(self):
         return """digraph {
@@ -218,7 +227,7 @@ class Grafica:
                     <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Tipo de Mision: Extraccion de Recursos</td>
                 </tr>
                 <tr>
-                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Recurso Extraido: """ + str(x) + """,""" + str(y) + """</td>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Recurso Objetivo: """ + str(x) + """,""" + str(y) + """</td>
                 </tr>
                 <tr>
                     <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Robot Utilizado: """ + robot + """ (ChapinFighter)</td>
