@@ -10,7 +10,6 @@ class Grafica:
         with open('ArchivoMision/Rescate.txt','w') as rescate:
             rescate.write(reporte)
         os.system('dot -Tpdf ArchivoMision/Rescate.txt -o Rescate.pdf')
-        
 
     def exportE(self,x,y,robot,capIni,capFin,ciudad):
         reporte = self.getHead()
