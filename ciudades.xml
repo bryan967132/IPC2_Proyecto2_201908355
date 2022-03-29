@@ -39,7 +39,7 @@
             <fila numero="9">"*** ******"</fila>
             <fila numero="10">"***      R"</fila>
             <unidadMilitar fila="2" columna="5">10</unidadMilitar>
-            <unidadMilitar fila="10" columna="5">200</unidadMilitar>
+            <unidadMilitar fila="10" columna="5">20</unidadMilitar>
         </ciudad>
     </listaCiudades>
     <robots>
