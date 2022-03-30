@@ -11,6 +11,9 @@ archivo = 'ciudades.xml'
 listaCiudades = pXML.getCiudades(archivo)
 listaRobots = pXML.getChapinRobots(archivo)
 
+#ciudad = listaCiudades.get(listaCiudades.search('CiudadGotica'))
+#funS.printCiudad(ciudad)
+
 #funS.verRobots(listaRobots,'ChapinRescue')
 #funS.verRobots(listaRobots,'ChapinFighter')
 
@@ -62,7 +65,7 @@ listaRobots = pXML.getChapinRobots(archivo)
 #fight = listaRobots.get(listaRobots.search('Robocop'))
 #extraccion2 = Mision(ciudad.filas,ciudad.columnas,ciudad.mapa,ciudad.uMilitar,fight)
 #extraccion2.generarPlanoExtraccion()
-#extraccion2.iniciarExtraccion(12,14)
+#extraccion2.iniciarExtraccion(3,19)
 
 #ciudad = listaCiudades.get(listaCiudades.search('CiudadGuate'))
 #rescue = listaRobots.get(listaRobots.search('OptimusPrime'))

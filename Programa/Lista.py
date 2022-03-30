@@ -63,7 +63,7 @@ class LstVctr:
             return - 1
         actual = self.primero
         while actual:
-            if actual.objeto.nombre.upper() == nombre.upper():
+            if actual.objeto.nombre == nombre:
                 return actual.objeto.i
             actual = actual.siguiente
         return - 1
