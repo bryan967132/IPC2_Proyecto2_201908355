@@ -1,7 +1,6 @@
 digraph {
     node [shape = none fontcolor="#000000" fontsize="35" fontname="Calibri"]
-    rankdir=DOWN;
-    cola[
+    ciudad[
         label=<
             <table border="0" cellborder="1" cellspacing="0" cellpadding="0">
                 <tr>
@@ -354,7 +353,7 @@ digraph {
                     <td color="#F2F2F2" bgcolor = "#000000" height = "64" width = "75"></td>
                     <td color="#F2F2F2" bgcolor = "#000000" height = "64" width = "75"></td>
                     <td color="#F2F2F2" bgcolor = "#000000" height = "64" width = "75"></td>
-                    <td color="#F2F2F2" bgcolor = "#000000" height = "64" width = "75"></td>
+                    <td color="#F2F2F2" bgcolor = "#FFFFFF" height = "64" width = "75"></td>
                     <td color="#F2F2F2" bgcolor = "#000000" height = "64" width = "75"></td>
                     <td color="#F2F2F2" bgcolor = "#000000" height = "64" width = "75"></td>
                     <td color="#F2F2F2" bgcolor = "#000000" height = "64" width = "75"></td>
@@ -375,4 +374,57 @@ digraph {
             </table>
         >
     ];
+    tiposC[
+        label=<
+            <table border="0" cellborder="1" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td color="#F2F2F2" bgcolor = "#000000" height = "64" width = "75"></td>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" width = "10"></td>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75" align="left">Intransitable</td>
+                </tr>
+                <tr>
+                    <td color="#F2F2F2" bgcolor = "#70AD47" height = "64" width = "75"></td>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" width = "10"></td>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75" align="left">Punto de Entrada</td>
+                </tr>
+                <tr>
+                    <td color="#F2F2F2" bgcolor = "#FFFFFF" height = "64" width = "75"></td>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" width = "10"></td>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75" align="left">Camino</td>
+                </tr>
+                <tr>
+                    <td color="#F2F2F2" bgcolor = "#C00000" height = "64" width = "75"></td>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" width = "10"></td>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75" align="left">Unidad Militar</td>
+                </tr>
+                <tr>
+                    <td color="#F2F2F2" bgcolor = "#2F75B5" height = "64" width = "75"></td>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" width = "10"></td>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75" align="left">Unidad Civil</td>
+                </tr>
+                <tr>
+                    <td color="#F2F2F2" bgcolor = "#7B7B7B" height = "64" width = "75"></td>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" width = "10"></td>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75" align="left">Recurso</td>
+                </tr>
+            </table>
+        >
+    ]
+    resumen[
+        label=<
+            <table border="0" cellborder="1" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Tipo de Misión: Extracción de Recursos</td>
+                </tr>
+                <tr>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Recurso Extraido: 7,19</td>
+                </tr>
+                <tr>
+                    <td color="#FFFFFF" bgcolor = "#FFFFFF" height = "64" width = "75">Robot utilizado: robot02 (ChapinFighter – Capacidad de combate inicial 100, Capacidad de combate final 80)</td>
+                </tr>
+            </table>
+        >
+    ];
+    ciudad -> tiposC [color="white"]
+    tiposC -> resumen [color="white"]
 }

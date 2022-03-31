@@ -3,6 +3,7 @@ from Limpiar import Limpiar
 from Lista import LstVctr,LstMtrz
 from Ciudad import Ciudad
 from Celda import Celda
+from Grafica import Grafica
 from FncP import FuncionesP
 from FncS import FuncionesS
 import sys
@@ -65,16 +66,14 @@ class Mision:
                 camino = tmpCiudad.getCamino()
                 clonCiudad = self.getMision(clonCiudad,camino,'P','Rescate')
                 Limpiar().limpiarConsola()
-                print('\nÚltima Misión: Misión Completada')
-                print('Tipo de Misión: Rescate')
-                print('Unidad Civil Rescatada: {},{}'.format(x1 + 1,y1 + 1))
-                print('Robot Utilizado: {} (ChapinRescue)'.format(self.robot.nombre))
-                self.fncP.printCiudad(clonCiudad)
+                self.fncS.printMisionR(x1 + 1,y1 + 1,self.robot.nombre)
+                Grafica().exportR(x1 + 1,y1 + 1,self.robot.nombre,clonCiudad)
                 return
             except:
                 pass
         Limpiar().limpiarConsola()
-        print('\nÚltima Misión De Rescate\nMisión Imposible')
+        self.fncS.printMisionRF(x1 + 1,y1 + 1,self.robot.nombre)
+        Grafica().exportRF(x1 + 1,y1 + 1,self.robot.nombre,clonCiudad)
     
     def iniciarExtraccion(self,x1,y1):
         sys.setrecursionlimit(20000)
@@ -91,18 +90,14 @@ class Mision:
                 camino = tmpCiudad.getCamino()
                 clonCiudad = self.getMision(clonCiudad,camino,'P','Extraccion')
                 Limpiar().limpiarConsola()
-                print('\nÚltima Misión: Misión Completada')
-                print('Tipo de Misión: Extracción de Recursos')
-                print('Unidad Civil Rescatada: {},{}'.format(x1 + 1,y1 + 1))
-                print('Robot Utilizado: {} (ChapinFighter)'.format(self.robot.nombre))
-                print('\tCapacidad de Combate Inicial:',capIni)
-                print('\tCapacidad de Combate Final:',self.capFin)
-                self.fncP.printCiudad(clonCiudad)
+                self.fncS.printMisionE(x1 + 1,y1 + 1,self.robot.nombre,capIni,self.capFin)
+                Grafica().exportE(x1 + 1,y1 + 1,self.robot.nombre,capIni,self.capFin,clonCiudad)
                 return
             except:
                 pass
         Limpiar().limpiarConsola()
-        print('\nÚltima Misión De Rescate\nMisión Imposible')
+        self.fncS.printMisionEF(x1 + 1,y1 + 1,self.robot.nombre)
+        Grafica().exportEF(x1 + 1,y1 + 1,self.robot.nombre,clonCiudad)
 
     def getciudad(self,filas,columnas):
         self.entradas = LstVctr()
