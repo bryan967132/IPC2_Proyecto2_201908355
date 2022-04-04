@@ -90,7 +90,7 @@ class Menu:
                                             if fighter.tipo == 'ChapinFighter':
                                                 break
                                 else:
-                                    fighter = funS.unicoRobot(listaRobots,'ChapinRescue')
+                                    fighter = funS.unicoRobot(listaRobots,'ChapinFighter')
                                 limpiar.limpiarConsola()
                                 print('\nChapinFighter Enviado: {}'.format(fighter.nombre))
                                 funS.ciudadesObjetivos(listaCiudades,'R')
